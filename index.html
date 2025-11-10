@@ -2,12 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <title>Splunk</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <main>Content area</main>
-    <script src="./js/app.js" defer></script>
+    <main id="app" aria-live="polite">
+      <noscript>This experience requires JavaScript.</noscript>
+    </main>
+
+    <script src="js/app.js" defer></script>
   </body>
 </html>

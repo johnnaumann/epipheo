@@ -1,1 +1,549 @@
-console.log("test");
+/* app.js */
+
+/**
+ * App-level constants exist here so behavior is predictable and easy to tweak.
+ */
+const APP_CONSTANTS = {
+  appRootId: "app",
+  slidesUrl: "js/slides.json",
+};
+
+/**
+ * The application state is simple and serializable so that rendering can be stateless and predictable.
+ */
+const appState = {
+  mode: "BOOT", // 'BOOT' | 'SPLASH' | 'RUNNING'
+  config: null,
+  pathIndex: null,
+  slideIndex: null,
+  teardownHandlers: [],
+};
+
+/**
+ * Bootstraps the application once the DOM is ready so the initial paint is deterministic.
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  initializeApplication();
+});
+
+/**
+ * Initializes the app by loading the slide configuration, wiring global keys, and rendering.
+ * Fetching at startup ensures that content changes do not require code edits or rebuilds.
+ */
+async function initializeApplication() {
+  attachGlobalKeyBindings();
+  try {
+    const config = await fetchSlidesConfiguration(APP_CONSTANTS.slidesUrl);
+    appState.config = config;
+    setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
+  } catch {
+    renderFatalError(
+      "Unable to load slides. Check that data/slides.json is reachable and valid JSON."
+    );
+  }
+}
+
+/**
+ * Loads the slides configuration from a JSON file.
+ * Using JSON keeps authorship non-technical and enables simple CMS handoff later.
+ *
+ * @param {string} url
+ * @returns {Promise<Object>}
+ */
+async function fetchSlidesConfiguration(url) {
+  const response = await fetch(url, { cache: "no-cache" });
+  if (!response.ok) throw new Error("Failed to fetch slides.json");
+  const data = await response.json();
+  if (!data || !Array.isArray(data.paths))
+    throw new Error("Invalid slides.json format");
+  return data;
+}
+
+/**
+ * Centralized state setter to ensure teardown happens before the next render.
+ *
+ * @param {Object} nextPartialState
+ */
+function setState(nextPartialState) {
+  runTeardownHandlers();
+  Object.assign(appState, nextPartialState);
+  render();
+}
+
+/**
+ * Renders the current state. A single entry point simplifies testing and mental model.
+ */
+function render() {
+  const appRoot = getAppRoot();
+  clearElement(appRoot);
+
+  if (appState.mode === "SPLASH") {
+    renderSplashScreen(appRoot);
+    return;
+  }
+
+  if (appState.mode === "RUNNING") {
+    renderSlide(appRoot);
+    return;
+  }
+
+  if (appState.mode === "BOOT") {
+    renderLoading(appRoot);
+  }
+}
+
+/**
+ * Renders a minimal loading state to reassure users during configuration fetch.
+ *
+ * @param {HTMLElement} appRoot
+ */
+function renderLoading(appRoot) {
+  const loader = document.createElement("div");
+  loader.className = "loading";
+  loader.textContent = "Loading…";
+  appRoot.appendChild(loader);
+}
+
+/**
+ * Renders a user-facing error when configuration cannot be loaded.
+ *
+ * @param {string} message
+ */
+function renderFatalError(message) {
+  const appRoot = getAppRoot();
+  clearElement(appRoot);
+  const container = document.createElement("div");
+  container.className = "error";
+  const text = document.createElement("p");
+  text.textContent = message;
+  container.appendChild(text);
+  appRoot.appendChild(container);
+}
+
+/**
+ * Renders the splash screen with one button per path.
+ * Buttons preserve native accessibility and focus behavior across devices.
+ *
+ * @param {HTMLElement} appRoot
+ */
+function renderSplashScreen(appRoot) {
+  const container = document.createElement("div");
+  container.className = "splash-container";
+
+  const title = document.createElement("h1");
+  title.className = "splash-title";
+  title.textContent = "Choose a path";
+  container.appendChild(title);
+
+  const buttonsWrapper = document.createElement("div");
+  buttonsWrapper.className = "splash-buttons";
+
+  const paths = getPathsConfig();
+  paths.forEach((pathDefinition, index) => {
+    const pathButton = document.createElement("button");
+    pathButton.type = "button";
+    pathButton.className = "splash-button";
+    pathButton.textContent = pathDefinition.title || `Path ${index + 1}`;
+
+    const onSelect = () => selectPath(index);
+    pathButton.addEventListener("click", onSelect);
+    registerTeardownHandler(() =>
+      pathButton.removeEventListener("click", onSelect)
+    );
+
+    buttonsWrapper.appendChild(pathButton);
+  });
+
+  container.appendChild(buttonsWrapper);
+  appRoot.appendChild(container);
+
+  const firstButton = buttonsWrapper.querySelector("button");
+  if (firstButton) firstButton.focus();
+}
+
+/**
+ * Renders the current slide for the active path.
+ * A fixed “stage” contains one base media layer and any number of overlay layers.
+ *
+ * @param {HTMLElement} appRoot
+ */
+function renderSlide(appRoot) {
+  const currentPath = getPathsConfig()[appState.pathIndex];
+  const currentSlide = currentPath.slides[appState.slideIndex];
+
+  const stage = document.createElement("div");
+  stage.className = "stage";
+  stage.tabIndex = 0; // allows keyboard focus for consistent interaction model
+  const stageInner = document.createElement("div");
+  stageInner.className = "stage-inner";
+  stage.appendChild(stageInner);
+
+  const baseMedia = createBaseMediaElement(currentSlide.base);
+  stageInner.appendChild(baseMedia);
+
+  if (shouldStageAdvanceOnClick(currentSlide)) {
+    const advanceHandler = () => moveToNextSlide();
+    stage.addEventListener("click", advanceHandler);
+    registerTeardownHandler(() =>
+      stage.removeEventListener("click", advanceHandler)
+    );
+  }
+
+  if (
+    currentSlide.advance === "timer" &&
+    typeof currentSlide.duration === "number"
+  ) {
+    const timerId = window.setTimeout(
+      () => moveToNextSlide(),
+      currentSlide.duration
+    );
+    registerTeardownHandler(() => window.clearTimeout(timerId));
+  }
+
+  if (
+    currentSlide.base?.type === "video" &&
+    currentSlide.advance === "video-end"
+  ) {
+    const endedHandler = () => moveToNextSlide();
+    baseMedia.addEventListener("ended", endedHandler);
+    registerTeardownHandler(() =>
+      baseMedia.removeEventListener("ended", endedHandler)
+    );
+  }
+
+  renderOverlays(stageInner, currentSlide.overlays || []);
+
+  appRoot.appendChild(stage);
+  preloadNextPrimaryAsset();
+  stage.focus({ preventScroll: true });
+}
+
+/**
+ * Selects a path and starts from its first slide.
+ *
+ * @param {number} pathIndex
+ */
+function selectPath(pathIndex) {
+  setState({ mode: "RUNNING", pathIndex, slideIndex: 0 });
+}
+
+/**
+ * Advances to the next slide, or returns to the splash when the path ends.
+ */
+function moveToNextSlide() {
+  const paths = getPathsConfig();
+  const currentPath = paths[appState.pathIndex];
+  const nextIndex = appState.slideIndex + 1;
+
+  if (nextIndex >= currentPath.slides.length) {
+    returnToSplash();
+    return;
+  }
+
+  setState({ mode: "RUNNING", slideIndex: nextIndex });
+}
+
+/**
+ * Returns to the splash screen to allow users to choose a different path.
+ */
+function returnToSplash() {
+  setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
+}
+
+/**
+ * Creates the base media element (image or video) for a slide.
+ * Media layout is delegated to CSS so JS remains layout-agnostic.
+ *
+ * @param {Object} base
+ * @returns {HTMLImageElement|HTMLVideoElement}
+ */
+function createBaseMediaElement(base) {
+  if (base?.type === "image") {
+    const image = document.createElement("img");
+    image.className = "stage-media";
+    image.src = base.src || "";
+    image.alt = base.alt || "";
+    return image;
+  }
+
+  if (base?.type === "video") {
+    const video = document.createElement("video");
+    video.className = "stage-media";
+    if (base.poster) video.poster = base.poster;
+    video.src = base.src || "";
+    video.playsInline = true; // keeps overlays visible on mobile
+    video.muted = base.muted !== false; // default muted for autoplay policies
+    video.autoplay = base.autoplay === true;
+    video.controls = base.controls === true;
+    video.setAttribute("aria-label", base.caption || "Video");
+    if (video.autoplay) {
+      video.play().catch(() => {});
+    }
+    return video;
+  }
+
+  const fallback = document.createElement("div");
+  fallback.className = "stage-media-fallback";
+  fallback.textContent = "Unsupported base media";
+  return fallback;
+}
+
+/**
+ * Renders overlay layers above the base media.
+ * Overlays are absolutely positioned in percentages so they scale with the stage.
+ *
+ * @param {HTMLElement} stageInner
+ * @param {Array} overlays
+ */
+function renderOverlays(stageInner, overlays) {
+  overlays.forEach((overlayDefinition) => {
+    const overlayElement = createOverlayElement(overlayDefinition);
+    stageInner.appendChild(overlayElement);
+
+    if (Array.isArray(overlayDefinition.classList)) {
+      overlayDefinition.classList.forEach((cls) =>
+        overlayElement.classList.add(cls)
+      );
+    }
+
+    if (typeof overlayDefinition.showAt === "number") {
+      overlayElement.style.visibility = "hidden";
+      const showTimerId = window.setTimeout(() => {
+        overlayElement.style.visibility = "";
+        overlayElement.classList.add("overlay-visible");
+      }, overlayDefinition.showAt);
+      registerTeardownHandler(() => window.clearTimeout(showTimerId));
+    }
+
+    if (typeof overlayDefinition.hideAt === "number") {
+      const hideTimerId = window.setTimeout(() => {
+        overlayElement.style.visibility = "hidden";
+        overlayElement.classList.remove("overlay-visible");
+      }, overlayDefinition.hideAt);
+      registerTeardownHandler(() => window.clearTimeout(hideTimerId));
+    }
+  });
+}
+
+/**
+ * Creates an overlay element according to the JSON schema.
+ * Buttons and hotspots are interactive; text and image are presentational.
+ *
+ * @param {Object} overlayDefinition
+ * @returns {HTMLElement}
+ */
+function createOverlayElement(overlayDefinition) {
+  const wrapper = document.createElement("div");
+  wrapper.className = `overlay overlay-${overlayDefinition.type || "unknown"}`;
+  applyOverlayBox(wrapper, overlayDefinition);
+
+  if (overlayDefinition.type === "text") {
+    const text = document.createElement("div");
+    text.className = "overlay-text";
+    text.innerHTML = overlayDefinition.html || "";
+    wrapper.appendChild(text);
+    return wrapper;
+  }
+
+  if (overlayDefinition.type === "image") {
+    const image = document.createElement("img");
+    image.className = "overlay-image";
+    image.src = overlayDefinition.src || "";
+    image.alt = overlayDefinition.alt || "";
+    wrapper.appendChild(image);
+    return wrapper;
+  }
+
+  if (overlayDefinition.type === "button") {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "overlay-button";
+    button.textContent = overlayDefinition.text || "";
+    wireOverlayAction(button, overlayDefinition.action);
+    wrapper.appendChild(button);
+    return wrapper;
+  }
+
+  if (overlayDefinition.type === "hotspot") {
+    const hotspot = document.createElement("button");
+    hotspot.type = "button";
+    hotspot.className = "overlay-hotspot";
+    hotspot.setAttribute(
+      "aria-label",
+      overlayDefinition.ariaLabel || "Continue"
+    );
+    wireOverlayAction(hotspot, overlayDefinition.action);
+    wrapper.appendChild(hotspot);
+    return wrapper;
+  }
+
+  return wrapper;
+}
+
+/**
+ * Wires an interactive overlay action.
+ * Keeping actions centralized makes it straightforward to add branching later if required.
+ *
+ * @param {HTMLElement} element
+ * @param {string} action
+ */
+function wireOverlayAction(element, action) {
+  if (action === "next") {
+    const handler = () => moveToNextSlide();
+    element.addEventListener("click", handler);
+    registerTeardownHandler(() =>
+      element.removeEventListener("click", handler)
+    );
+  }
+}
+
+/**
+ * Applies percentage-based position and size to an overlay wrapper so it scales with the stage.
+ *
+ * @param {HTMLElement} element
+ * @param {Object} overlayDefinition
+ */
+function applyOverlayBox(element, overlayDefinition) {
+  element.style.position = "absolute";
+  if (typeof overlayDefinition.x === "number")
+    element.style.left = `${overlayDefinition.x}%`;
+  if (typeof overlayDefinition.y === "number")
+    element.style.top = `${overlayDefinition.y}%`;
+  if (typeof overlayDefinition.w === "number")
+    element.style.width = `${overlayDefinition.w}%`;
+  if (typeof overlayDefinition.h === "number")
+    element.style.height = `${overlayDefinition.h}%`;
+}
+
+/**
+ * Decides whether the entire stage should advance on click for the current slide.
+ * Slides that rely on timed advancement or video-end avoid global click-through to prevent surprises.
+ *
+ * @param {Object} slide
+ * @returns {boolean}
+ */
+function shouldStageAdvanceOnClick(slide) {
+  if (slide.advance === "timer" || slide.advance === "video-end") return false;
+  if (slide.advance === "click") return true;
+  return true;
+}
+
+/**
+ * Preloads the next slide's base media to reduce perceived latency when advancing.
+ */
+function preloadNextPrimaryAsset() {
+  const paths = getPathsConfig();
+  const currentPath = paths[appState.pathIndex];
+  const nextIndex = appState.slideIndex + 1;
+
+  if (!currentPath || nextIndex >= currentPath.slides.length) return;
+
+  const nextSlide = currentPath.slides[nextIndex];
+  if (nextSlide.preloadNext === false) return;
+
+  const base = nextSlide.base || {};
+  if (base.type === "image" && base.src) {
+    const img = new Image();
+    img.src = base.src;
+    registerTeardownHandler(() => {});
+  } else if (base.type === "video" && base.src) {
+    const vid = document.createElement("video");
+    vid.preload = "metadata";
+    vid.src = base.src;
+    registerTeardownHandler(() => {
+      vid.removeAttribute("src");
+      vid.load();
+    });
+  }
+}
+
+/**
+ * Global key bindings for quick navigation and accessibility.
+ * ESC returns to splash; Space/Enter/ArrowRight advance when running.
+ */
+function attachGlobalKeyBindings() {
+  const handler = (event) => {
+    const isTyping = ["INPUT", "TEXTAREA"].includes(event.target.tagName);
+    if (isTyping) return;
+
+    if (event.key === "Escape") {
+      returnToSplash();
+      return;
+    }
+
+    if (appState.mode === "RUNNING") {
+      if (
+        event.key === " " ||
+        event.key === "Enter" ||
+        event.key === "ArrowRight"
+      ) {
+        event.preventDefault();
+        moveToNextSlide();
+      }
+    }
+  };
+
+  document.addEventListener("keydown", handler);
+  registerTeardownHandler(() =>
+    document.removeEventListener("keydown", handler)
+  );
+}
+
+/**
+ * Returns the array of path configurations from the loaded JSON.
+ *
+ * @returns {Array}
+ */
+function getPathsConfig() {
+  return appState.config?.paths || [];
+}
+
+/**
+ * Returns the root element for the app.
+ *
+ * @returns {HTMLElement}
+ */
+function getAppRoot() {
+  const element = document.getElementById(APP_CONSTANTS.appRootId);
+  if (!element)
+    throw new Error(
+      `Missing root element with id="${APP_CONSTANTS.appRootId}"`
+    );
+  return element;
+}
+
+/**
+ * Registers a teardown handler that is executed before rendering the next state.
+ * This prevents timers and listeners from leaking across states.
+ *
+ * @param {Function} teardownHandler
+ */
+function registerTeardownHandler(teardownHandler) {
+  appState.teardownHandlers.push(teardownHandler);
+}
+
+/**
+ * Executes and clears all registered teardown handlers in LIFO order.
+ * LIFO mirrors how listeners and timers are typically registered during render.
+ */
+function runTeardownHandlers() {
+  while (appState.teardownHandlers.length) {
+    const handler = appState.teardownHandlers.pop();
+    try {
+      handler();
+    } catch {
+      // Intentionally ignore teardown errors to keep the UI responsive.
+    }
+  }
+}
+
+/**
+ * Removes all children from an element to ensure a clean render.
+ *
+ * @param {HTMLElement} element
+ */
+function clearElement(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}

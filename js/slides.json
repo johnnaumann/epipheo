@@ -1,0 +1,333 @@
+{
+  "paths": [
+    {
+      "title": "Chicken",
+      "slides": [
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/01.jpeg",
+            "alt": "Comic frame 01"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to begin.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Start",
+              "action": "next",
+              "x": 70,
+              "y": 86,
+              "w": 24,
+              "h": 10,
+              "classList": ["button", "pop-in"],
+              "showAt": 250
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/02.jpeg",
+            "alt": "Comic frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Chapter opens.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/05.jpeg",
+            "alt": "Comic frame 05"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "A quiet moment.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/07.jpeg",
+            "alt": "Comic frame 07"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tension rises.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/08.jpeg",
+            "alt": "Comic frame 08"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "A choice appears.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/10.jpeg",
+            "alt": "Comic frame 10"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Momentum builds.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/11.jpg",
+            "alt": "Comic frame 11"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Near the end.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/18.jpeg",
+            "alt": "Comic frame 18"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "button",
+              "text": "Return",
+              "action": "next",
+              "x": 70,
+              "y": 86,
+              "w": 24,
+              "h": 10,
+              "classList": ["button", "pop-in"],
+              "showAt": 250
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Bank",
+      "slides": [
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/07.jpeg",
+            "alt": "Single-slide path: Pulse"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "This path is a single beat. Tap to return.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Return",
+              "action": "next",
+              "x": 70,
+              "y": 86,
+              "w": 24,
+              "h": 10,
+              "classList": ["button", "pop-in"],
+              "showAt": 250
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Crossroads",
+      "slides": [
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/10.jpeg",
+            "alt": "Single-slide path: Crossroads"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Another quick path. Tap to return.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Return",
+              "action": "next",
+              "x": 70,
+              "y": 86,
+              "w": 24,
+              "h": 10,
+              "classList": ["button", "pop-in"],
+              "showAt": 250
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

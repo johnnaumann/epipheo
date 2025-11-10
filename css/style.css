@@ -1,20 +1,323 @@
-:root {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
 }
 body {
-  margin: 2rem;
-  line-height: 1.5;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.45;
+  color: #111;
+  background: #0c0c0f;
 }
-h1 {
-  margin-bottom: 0.25rem;
+
+/* Centering the app content and constraining width improves readability on large screens. */
+#app {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 16px;
 }
-section {
-  margin: 1.5rem 0;
+
+/* Splash screen layout uses a column with a responsive grid of buttons. */
+.splash-container {
+  width: min(1100px, 100%);
+  display: grid;
+  gap: 24px;
+  justify-items: center;
+  text-align: center;
 }
-img,
-video {
-  display: block;
-  margin-top: 0.5rem;
-  max-width: 100%;
-  height: auto;
+.splash-title {
+  margin: 0;
+  color: #f5f7fb;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.splash-buttons {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.splash-button {
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0b0d12;
+  background: linear-gradient(180deg, #e6f0ff, #c9dcff);
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.splash-button:focus-visible {
+  outline: 3px solid #7fb0ff;
+  outline-offset: 2px;
+}
+.splash-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+}
+.splash-button:active {
+  transform: translateY(0);
+}
+
+/* Stage container keeps a consistent aspect ratio and letterboxes on tall screens. */
+.stage {
+  width: min(100vw, 100vh * (16 / 9));
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  outline: none;
+  display: grid;
+  place-items: center;
+}
+.stage-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Base media fills the stage with cover behavior so art remains edge-to-edge. */
+.stage-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlays are positioned with percentages and scale with the stage. */
+.overlay {
+  position: absolute;
+  pointer-events: none; /* interactive children re-enable pointer events selectively */
+  display: grid;
+  place-items: center;
+}
+
+/* Text captions use a readable pill with slight translucency for varied backgrounds. */
+.overlay-text,
+.overlay-caption,
+.caption {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 8px 12px;
+  color: #f6f7fb;
+  background: rgba(20, 22, 28, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  font-size: clamp(14px, 2.1vw, 20px);
+  text-align: center;
+  backdrop-filter: saturate(110%) blur(6px);
+}
+
+/* Overlay images are decorative sprites that scale within their box. */
+.overlay-image,
+.sprite {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Buttons and hotspots are the only overlays that accept input. */
+.overlay-button,
+.overlay-hotspot,
+.button,
+.hotspot {
+  pointer-events: auto;
+}
+
+/* Primary call-to-action button. */
+.overlay-button,
+.button {
+  appearance: none;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #9be1ff, #5bbcff);
+  color: #0b0d12;
+  font-weight: 700;
+  font-size: clamp(14px, 2vw, 18px);
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(30, 136, 229, 0.35);
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.overlay-button:hover,
+.button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+.overlay-button:active,
+.button:active {
+  transform: translateY(0);
+}
+.overlay-button:focus-visible,
+.button:focus-visible {
+  outline: 3px solid #7fb0ff;
+  outline-offset: 2px;
+}
+
+/* Hotspots are visually subtle by default; a faint outline helps authors debug hit areas. */
+.overlay-hotspot,
+.hotspot {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+}
+.overlay-hotspot:focus-visible,
+.hotspot:focus-visible {
+  outline: 3px solid #7fb0ff;
+  outline-offset: 2px;
+}
+
+/* Loading and error states keep the experience explicit during data issues. */
+.loading {
+  color: #e6e8ef;
+  opacity: 0.8;
+  font-weight: 600;
+}
+.error {
+  color: #ffd7d7;
+  background: rgba(120, 0, 0, 0.18);
+  border: 1px solid rgba(255, 120, 120, 0.35);
+  padding: 16px 20px;
+  border-radius: 10px;
+}
+
+/* Animations are opt-in via class names so motion can be applied per-overlay. */
+.overlay-visible {
+  /* This class exists to allow CSS selectors if you want transitions tied to show/hide. */
+}
+
+/* Fade in keeps initial presence gentle over busy backgrounds. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in {
+  animation: fadeIn 420ms ease-out both;
+}
+
+/* Pop-in adds a slight scale for prominent CTAs without jarring motion. */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.pop-in {
+  animation: popIn 280ms ease-out both;
+}
+
+/* Blink is a low-amplitude opacity pulse for instrument readouts. */
+@keyframes blinkPulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.blink {
+  animation: blinkPulse 1200ms ease-in-out infinite;
+}
+
+/* Float is a gentle drift for decorative sprites. */
+@keyframes floatDrift {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.float {
+  animation: floatDrift 3200ms ease-in-out infinite;
+}
+
+/* Sparkle uses a subtle scale and glow for energy effects. */
+@keyframes sparklePulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(255, 255, 200, 0));
+  }
+  50% {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 200, 0.6));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(255, 255, 200, 0));
+  }
+}
+.sparkle {
+  animation: sparklePulse 1600ms ease-in-out infinite;
+}
+
+/* Hotspot pulse provides a barely-there cue that something is interactive. */
+@keyframes hotspotPulse {
+  0% {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.26);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+.pulse {
+  animation: hotspotPulse 1400ms ease-in-out infinite;
+}
+
+/* Respect users who prefer reduced motion by disabling non-essential animations. */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .pop-in,
+  .blink,
+  .float,
+  .sparkle,
+  .pulse {
+    animation: none !important;
+  }
+  .splash-button,
+  .overlay-button,
+  .button {
+    transition: none;
+  }
 }
