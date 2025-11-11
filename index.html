@@ -11,7 +11,27 @@
   </head>
   <body>
     <main id="app" aria-live="polite">
-      <noscript>This experience requires JavaScript.</noscript>
+      <!-- Splash lives in HTML; JS populates buttons and toggles visibility -->
+      <section id="splash" class="splash-container" aria-label="Choose a path">
+        <header class="splash-header">
+          <img
+            class="splash-logo"
+            src="media/splash/splunk-logo.svg"
+            alt="Splunk"
+          />
+          <h1 class="splash-title"><span>Game</span> <span>Title!</span></h1>
+        </header>
+        <div class="splash-button-container">
+          <h1>Choose your adventure:</h1>
+          <div id="splash-buttons" class="splash-buttons"></div>
+        </div>
+        <noscript>This experience requires JavaScript.</noscript>
+      </section>
+
+      <!-- Stage stays hidden until a path is chosen -->
+      <div id="stage" class="stage" tabindex="0" hidden>
+        <div class="stage-inner"></div>
+      </div>
     </main>
 
     <script src="js/app.js" defer></script>

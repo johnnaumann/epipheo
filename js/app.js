@@ -5,6 +5,9 @@
  */
 const APP_CONSTANTS = {
   appRootId: "app",
+  splashId: "splash",
+  splashButtonsId: "splash-buttons",
+  stageId: "stage",
   slidesUrl: "js/slides.json",
 };
 
@@ -28,17 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /**
  * Initializes the app by loading the slide configuration, wiring global keys, and rendering.
- * Fetching at startup ensures that content changes do not require code edits or rebuilds.
+ * Splash markup exists in HTML; buttons are populated from config.
  */
 async function initializeApplication() {
   attachGlobalKeyBindings();
   try {
     const config = await fetchSlidesConfiguration(APP_CONSTANTS.slidesUrl);
     appState.config = config;
+    buildSplashButtons();
     setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
   } catch {
     renderFatalError(
-      "Unable to load slides. Check that data/slides.json is reachable and valid JSON."
+      "Unable to load slides. Check that js/slides.json is reachable and valid JSON."
     );
   }
 }
@@ -71,37 +75,50 @@ function setState(nextPartialState) {
 }
 
 /**
- * Renders the current state. A single entry point simplifies testing and mental model.
+ * Renders the current state. Splash is part of the HTML; stage visibility is toggled here.
  */
 function render() {
   const appRoot = getAppRoot();
-  clearElement(appRoot);
+  const splashRoot = getSplashRoot();
+  const stageRoot = getStageRoot();
 
   if (appState.mode === "SPLASH") {
-    renderSplashScreen(appRoot);
+    splashRoot.hidden = false;
+    stageRoot.hidden = true;
+    stageRoot.classList.remove("fullscreen");
+
+    const firstButton = splashRoot.querySelector("button");
+    if (firstButton) firstButton.focus();
     return;
   }
 
   if (appState.mode === "RUNNING") {
-    renderSlide(appRoot);
+    splashRoot.hidden = true;
+    stageRoot.hidden = false;
+    stageRoot.classList.add("fullscreen");
+
+    renderSlide();
     return;
   }
 
   if (appState.mode === "BOOT") {
-    renderLoading(appRoot);
+    splashRoot.hidden = false;
+    stageRoot.hidden = true;
+    stageRoot.classList.remove("fullscreen");
+    showLoadingOnSplash();
   }
 }
 
 /**
- * Renders a minimal loading state to reassure users during configuration fetch.
- *
- * @param {HTMLElement} appRoot
+ * Shows a loading indicator in the splash button area while the app boots.
  */
-function renderLoading(appRoot) {
+function showLoadingOnSplash() {
+  const splashButtons = getSplashButtonsRoot();
+  clearElement(splashButtons);
   const loader = document.createElement("div");
   loader.className = "loading";
   loader.textContent = "Loading…";
-  appRoot.appendChild(loader);
+  splashButtons.appendChild(loader);
 }
 
 /**
@@ -121,24 +138,14 @@ function renderFatalError(message) {
 }
 
 /**
- * Renders the splash screen with one button per path.
+ * Builds one splash button per path using the configuration that has been loaded.
  * Buttons preserve native accessibility and focus behavior across devices.
- *
- * @param {HTMLElement} appRoot
  */
-function renderSplashScreen(appRoot) {
-  const container = document.createElement("div");
-  container.className = "splash-container";
-
-  const title = document.createElement("h1");
-  title.className = "splash-title";
-  title.textContent = "Choose a path";
-  container.appendChild(title);
-
-  const buttonsWrapper = document.createElement("div");
-  buttonsWrapper.className = "splash-buttons";
-
+function buildSplashButtons() {
+  const buttonsWrapper = getSplashButtonsRoot();
+  clearElement(buttonsWrapper);
   const paths = getPathsConfig();
+
   paths.forEach((pathDefinition, index) => {
     const pathButton = document.createElement("button");
     pathButton.type = "button";
@@ -147,45 +154,31 @@ function renderSplashScreen(appRoot) {
 
     const onSelect = () => selectPath(index);
     pathButton.addEventListener("click", onSelect);
-    registerTeardownHandler(() =>
-      pathButton.removeEventListener("click", onSelect)
-    );
 
     buttonsWrapper.appendChild(pathButton);
   });
-
-  container.appendChild(buttonsWrapper);
-  appRoot.appendChild(container);
-
-  const firstButton = buttonsWrapper.querySelector("button");
-  if (firstButton) firstButton.focus();
 }
 
 /**
  * Renders the current slide for the active path.
- * A fixed “stage” contains one base media layer and any number of overlay layers.
- *
- * @param {HTMLElement} appRoot
+ * A fixed stage contains one base media layer and any number of overlay layers.
  */
-function renderSlide(appRoot) {
+function renderSlide() {
+  const stageRoot = getStageRoot();
+  const stageInner = stageRoot.querySelector(".stage-inner");
+  clearElement(stageInner);
+
   const currentPath = getPathsConfig()[appState.pathIndex];
   const currentSlide = currentPath.slides[appState.slideIndex];
-
-  const stage = document.createElement("div");
-  stage.className = "stage";
-  stage.tabIndex = 0; // allows keyboard focus for consistent interaction model
-  const stageInner = document.createElement("div");
-  stageInner.className = "stage-inner";
-  stage.appendChild(stageInner);
 
   const baseMedia = createBaseMediaElement(currentSlide.base);
   stageInner.appendChild(baseMedia);
 
   if (shouldStageAdvanceOnClick(currentSlide)) {
     const advanceHandler = () => moveToNextSlide();
-    stage.addEventListener("click", advanceHandler);
+    stageRoot.addEventListener("click", advanceHandler);
     registerTeardownHandler(() =>
-      stage.removeEventListener("click", advanceHandler)
+      stageRoot.removeEventListener("click", advanceHandler)
     );
   }
 
@@ -213,9 +206,8 @@ function renderSlide(appRoot) {
 
   renderOverlays(stageInner, currentSlide.overlays || []);
 
-  appRoot.appendChild(stage);
   preloadNextPrimaryAsset();
-  stage.focus({ preventScroll: true });
+  stageRoot.focus({ preventScroll: true });
 }
 
 /**
@@ -255,7 +247,7 @@ function returnToSplash() {
  * Media layout is delegated to CSS so JS remains layout-agnostic.
  *
  * @param {Object} base
- * @returns {HTMLImageElement|HTMLVideoElement}
+ * @returns {HTMLImageElement|HTMLVideoElement|HTMLDivElement}
  */
 function createBaseMediaElement(base) {
   if (base?.type === "image") {
@@ -382,14 +374,18 @@ function createOverlayElement(overlayDefinition) {
 
 /**
  * Wires an interactive overlay action.
- * Keeping actions centralized makes it straightforward to add branching later if required.
+ * Clicks on overlays stop propagation to prevent the stage click handler from also firing.
  *
  * @param {HTMLElement} element
  * @param {string} action
  */
 function wireOverlayAction(element, action) {
   if (action === "next") {
-    const handler = () => moveToNextSlide();
+    const handler = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      moveToNextSlide();
+    };
     element.addEventListener("click", handler);
     registerTeardownHandler(() =>
       element.removeEventListener("click", handler)
@@ -416,14 +412,28 @@ function applyOverlayBox(element, overlayDefinition) {
 }
 
 /**
+ * Returns true if the slide defines any interactive overlay (button or hotspot).
+ *
+ * @param {Object} slide
+ * @returns {boolean}
+ */
+function slideHasInteractiveOverlay(slide) {
+  return Array.isArray(slide?.overlays)
+    ? slide.overlays.some((o) => o?.type === "button" || o?.type === "hotspot")
+    : false;
+}
+
+/**
  * Decides whether the entire stage should advance on click for the current slide.
- * Slides that rely on timed advancement or video-end avoid global click-through to prevent surprises.
+ * If a slide includes any interactive overlays, stage-level click-through is disabled
+ * to avoid double-advancing when those controls are used.
  *
  * @param {Object} slide
  * @returns {boolean}
  */
 function shouldStageAdvanceOnClick(slide) {
   if (slide.advance === "timer" || slide.advance === "video-end") return false;
+  if (slideHasInteractiveOverlay(slide)) return false; // avoid bubbling double-advance
   if (slide.advance === "click") return true;
   return true;
 }
@@ -510,6 +520,44 @@ function getAppRoot() {
       `Missing root element with id="${APP_CONSTANTS.appRootId}"`
     );
   return element;
+}
+
+/**
+ * Returns the splash section element.
+ *
+ * @returns {HTMLElement}
+ */
+function getSplashRoot() {
+  const el = document.getElementById(APP_CONSTANTS.splashId);
+  if (!el)
+    throw new Error(`Missing splash element id="${APP_CONSTANTS.splashId}"`);
+  return el;
+}
+
+/**
+ * Returns the splash buttons container element.
+ *
+ * @returns {HTMLElement}
+ */
+function getSplashButtonsRoot() {
+  const el = document.getElementById(APP_CONSTANTS.splashButtonsId);
+  if (!el)
+    throw new Error(
+      `Missing splash buttons element id="${APP_CONSTANTS.splashButtonsId}"`
+    );
+  return el;
+}
+
+/**
+ * Returns the stage element that contains slide content.
+ *
+ * @returns {HTMLElement}
+ */
+function getStageRoot() {
+  const el = document.getElementById(APP_CONSTANTS.stageId);
+  if (!el)
+    throw new Error(`Missing stage element id="${APP_CONSTANTS.stageId}"`);
+  return el;
 }
 
 /**

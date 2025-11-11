@@ -6,15 +6,53 @@
 }
 html,
 body {
-  height: 100%;
 }
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    "Apple Color Emoji", "Segoe UI Emoji";
-  line-height: 1.45;
   color: #111;
   background: #0c0c0f;
+  height: 100%;
+  margin: 0;
+}
+
+/* Splunk Data Sans (Regular + Bold) */
+@font-face {
+  font-family: "Splunk Data Sans";
+  src: url("fonts/Splunk Data Sans/SplunkDataSans_Rg.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Splunk Data Sans";
+  src: url("fonts/Splunk Data Sans/SplunkDataSans_Bd.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Splunk Data Sans Pro (Regular + Bold) */
+@font-face {
+  font-family: "Splunk Data Sans Pro";
+  src: url("fonts/Splunk Data Sans Pro/SplunkDataSansPro_Rg.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Splunk Data Sans Pro";
+  src: url("fonts/Splunk Data Sans Pro/SplunkDataSansPro_Bd.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Use Splunk Data Sans by default */
+body {
+  font-family: "Splunk Data Sans", "Splunk Data Sans Pro", system-ui,
+    -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
 }
 
 /* Centering the app content and constraining width improves readability on large screens. */
@@ -22,22 +60,53 @@ body {
   min-height: 100%;
   display: grid;
   place-items: center;
-  padding: 16px;
+}
+
+/* Ensure hidden elements are never displayed */
+[hidden] {
+  display: none !important;
 }
 
 /* Splash screen layout uses a column with a responsive grid of buttons. */
 .splash-container {
-  width: min(1100px, 100%);
-  display: grid;
+  background: #757575;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
+  height: 100vh;
   justify-items: center;
   text-align: center;
+  width: 100%;
+}
+.splash-logo {
+  margin: 30px auto 0;
+  width: 200px;
+}
+.splash-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-items: center;
 }
 .splash-title {
-  margin: 0;
   color: #f5f7fb;
+  font-size: 20vh;
   font-weight: 700;
-  letter-spacing: 0.2px;
+  line-height: 0.85;
+  margin: 0;
+  text-transform: uppercase;
+}
+.splash-title span {
+  display: block;
+}
+.splash-button-container {
+  background: #b9b9b9;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  padding: 30px;
+  text-transform: uppercase;
+  width: 100%;
 }
 .splash-buttons {
   width: 100%;
@@ -47,20 +116,19 @@ body {
 }
 .splash-button {
   appearance: none;
-  border: 0;
+  background: #ffffff;
+  border: 3px solid #000;
   border-radius: 12px;
   padding: 16px 20px;
   font-size: 1rem;
   font-weight: 600;
   color: #0b0d12;
-  background: linear-gradient(180deg, #e6f0ff, #c9dcff);
   cursor: pointer;
+
+  text-transform: uppercase;
   transition: transform 120ms ease, filter 120ms ease;
 }
-.splash-button:focus-visible {
-  outline: 3px solid #7fb0ff;
-  outline-offset: 2px;
-}
+
 .splash-button:hover {
   transform: translateY(-2px);
   filter: brightness(1.02);
@@ -74,12 +142,19 @@ body {
   width: min(100vw, 100vh * (16 / 9));
   aspect-ratio: 16 / 9;
   background: #000;
-  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   overflow: hidden;
-  outline: none;
   display: grid;
   place-items: center;
+}
+.stage.fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+  border-radius: 0;
+  box-shadow: none;
 }
 .stage-inner {
   position: relative;
@@ -116,7 +191,6 @@ body {
   padding: 8px 12px;
   color: #f6f7fb;
   background: rgba(20, 22, 28, 0.56);
-  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 10px;
   font-size: clamp(14px, 2.1vw, 20px);
   text-align: center;
@@ -165,27 +239,15 @@ body {
 .button:active {
   transform: translateY(0);
 }
-.overlay-button:focus-visible,
-.button:focus-visible {
-  outline: 3px solid #7fb0ff;
-  outline-offset: 2px;
-}
 
-/* Hotspots are visually subtle by default; a faint outline helps authors debug hit areas. */
+/* Hotspots are visually subtle by default */
 .overlay-hotspot,
 .hotspot {
   width: 100%;
   height: 100%;
-  border: 2px dashed rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
   background: transparent;
   color: transparent;
   cursor: pointer;
-}
-.overlay-hotspot:focus-visible,
-.hotspot:focus-visible {
-  outline: 3px solid #7fb0ff;
-  outline-offset: 2px;
 }
 
 /* Loading and error states keep the experience explicit during data issues. */
@@ -287,22 +349,6 @@ body {
 }
 .sparkle {
   animation: sparklePulse 1600ms ease-in-out infinite;
-}
-
-/* Hotspot pulse provides a barely-there cue that something is interactive. */
-@keyframes hotspotPulse {
-  0% {
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-  50% {
-    border-color: rgba(255, 255, 255, 0.26);
-  }
-  100% {
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-}
-.pulse {
-  animation: hotspotPulse 1400ms ease-in-out infinite;
 }
 
 /* Respect users who prefer reduced motion by disabling non-essential animations. */

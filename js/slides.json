@@ -1,13 +1,13 @@
 {
   "paths": [
     {
-      "title": "Chicken",
+      "title": "Bank",
       "slides": [
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/01.jpeg",
-            "alt": "Comic frame 01"
+            "src": "media/bank/bank01.jpg",
+            "alt": "Bank frame 01"
           },
           "advance": "click",
           "preloadNext": true,
@@ -38,15 +38,15 @@
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/02.jpeg",
-            "alt": "Comic frame 02"
+            "src": "media/bank/bank02.jpg",
+            "alt": "Bank frame 02"
           },
           "advance": "click",
           "preloadNext": true,
           "overlays": [
             {
               "type": "text",
-              "html": "Chapter opens.",
+              "html": "Tap to continue.",
               "x": 6,
               "y": 78,
               "w": 88,
@@ -69,15 +69,15 @@
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/05.jpeg",
-            "alt": "Comic frame 05"
+            "src": "media/bank/bank03.jpg",
+            "alt": "Bank frame 03"
           },
           "advance": "click",
           "preloadNext": true,
           "overlays": [
             {
               "type": "text",
-              "html": "A quiet moment.",
+              "html": "Tap to continue.",
               "x": 6,
               "y": 78,
               "w": 88,
@@ -100,15 +100,15 @@
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/07.jpeg",
-            "alt": "Comic frame 07"
+            "src": "media/bank/bank04.jpg",
+            "alt": "Bank frame 04"
           },
           "advance": "click",
           "preloadNext": true,
           "overlays": [
             {
               "type": "text",
-              "html": "Tension rises.",
+              "html": "Tap to continue.",
               "x": 6,
               "y": 78,
               "w": 88,
@@ -131,15 +131,15 @@
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/08.jpeg",
-            "alt": "Comic frame 08"
+            "src": "media/bank/bank05.jpg",
+            "alt": "Bank frame 05"
           },
           "advance": "click",
           "preloadNext": true,
           "overlays": [
             {
               "type": "text",
-              "html": "A choice appears.",
+              "html": "Tap to continue.",
               "x": 6,
               "y": 78,
               "w": 88,
@@ -162,15 +162,15 @@
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/10.jpeg",
-            "alt": "Comic frame 10"
+            "src": "media/bank/bank06.jpg",
+            "alt": "Bank frame 06"
           },
           "advance": "click",
           "preloadNext": true,
           "overlays": [
             {
               "type": "text",
-              "html": "Momentum builds.",
+              "html": "Tap to continue.",
               "x": 6,
               "y": 78,
               "w": 88,
@@ -193,15 +193,15 @@
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/11.jpg",
-            "alt": "Comic frame 11"
+            "src": "media/bank/bank07.jpg",
+            "alt": "Bank frame 07"
           },
           "advance": "click",
           "preloadNext": true,
           "overlays": [
             {
               "type": "text",
-              "html": "Near the end.",
+              "html": "Tap to continue.",
               "x": 6,
               "y": 78,
               "w": 88,
@@ -224,8 +224,163 @@
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/18.jpeg",
-            "alt": "Comic frame 18"
+            "src": "media/bank/bank08.jpg",
+            "alt": "Bank frame 08"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/bank/bank09.jpg",
+            "alt": "Bank frame 09"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/bank/bank10.jpg",
+            "alt": "Bank frame 10"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/bank/bank11.jpg",
+            "alt": "Bank frame 11"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/bank/bank12.jpg",
+            "alt": "Bank frame 12"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/bank/bank13.jpg",
+            "alt": "Bank frame 13"
           },
           "advance": "click",
           "preloadNext": true,
@@ -256,26 +411,306 @@
       ]
     },
     {
-      "title": "Bank",
+      "title": "Meal",
       "slides": [
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/07.jpeg",
-            "alt": "Single-slide path: Pulse"
+            "src": "media/chicken/chicken01.jpg",
+            "alt": "Chicken frame 01"
           },
           "advance": "click",
           "preloadNext": true,
           "overlays": [
             {
               "type": "text",
-              "html": "This path is a single beat. Tap to return.",
+              "html": "Tap to begin.",
               "x": 6,
               "y": 78,
               "w": 88,
               "h": 18,
               "classList": ["caption", "fade-in"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Start",
+              "action": "next",
+              "x": 70,
+              "y": 86,
+              "w": 24,
+              "h": 10,
+              "classList": ["button", "pop-in"],
+              "showAt": 250
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken02.jpg",
+            "alt": "Chicken frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken03.jpg",
+            "alt": "Chicken frame 03"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken05.jpg",
+            "alt": "Chicken frame 05"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken07.jpg",
+            "alt": "Chicken frame 07"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken08.jpg",
+            "alt": "Chicken frame 08"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken10.jpg",
+            "alt": "Chicken frame 10"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken11.jpg",
+            "alt": "Chicken frame 11"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken12.jpg",
+            "alt": "Chicken frame 12"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/chicken/chicken18.jpg",
+            "alt": "Chicken frame 18"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
             },
             {
               "type": "button",
@@ -293,26 +728,89 @@
       ]
     },
     {
-      "title": "Crossroads",
+      "title": "Travel",
       "slides": [
         {
           "base": {
             "type": "image",
-            "src": "media/chicken/10.jpeg",
-            "alt": "Single-slide path: Crossroads"
+            "src": "media/travel/travel01.jpg",
+            "alt": "Travel frame 01"
           },
           "advance": "click",
           "preloadNext": true,
           "overlays": [
             {
               "type": "text",
-              "html": "Another quick path. Tap to return.",
+              "html": "Tap to begin.",
               "x": 6,
               "y": 78,
               "w": 88,
               "h": 18,
               "classList": ["caption", "fade-in"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Start",
+              "action": "next",
+              "x": 70,
+              "y": 86,
+              "w": 24,
+              "h": 10,
+              "classList": ["button", "pop-in"],
+              "showAt": 250
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/travel/travel02.jpg",
+            "alt": "Travel frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/travel/travel03.jpg",
+            "alt": "Travel frame 03"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
             },
             {
               "type": "button",
