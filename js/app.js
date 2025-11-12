@@ -223,6 +223,10 @@ function selectPath(pathIndex) {
  * Advances to the next slide, or returns to the splash when the path ends.
  */
 function moveToNextSlide() {
+  const c = document.getElementById("click");
+  c.currentTime = 0;
+  c.play();
+
   const paths = getPathsConfig();
   const currentPath = paths[appState.pathIndex];
   const nextIndex = appState.slideIndex + 1;
@@ -331,7 +335,6 @@ function createOverlayElement(overlayDefinition) {
 
   if (overlayDefinition.type === "text") {
     const text = document.createElement("div");
-    text.className = "overlay-text";
     text.innerHTML = overlayDefinition.html || "";
     wrapper.appendChild(text);
     return wrapper;

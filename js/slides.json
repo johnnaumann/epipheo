@@ -23,15 +23,14 @@
               "showAt": 0
             },
             {
-              "type": "button",
-              "text": "Start",
+              "type": "hotspot",
               "action": "next",
-              "x": 70,
-              "y": 86,
-              "w": 24,
-              "h": 10,
-              "classList": ["button", "pop-in"],
-              "showAt": 250
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
             }
           ]
         },
@@ -396,15 +395,14 @@
               "showAt": 200
             },
             {
-              "type": "button",
-              "text": "Return",
+              "type": "hotspot",
               "action": "next",
-              "x": 70,
-              "y": 86,
-              "w": 24,
-              "h": 10,
-              "classList": ["button", "pop-in"],
-              "showAt": 250
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
             }
           ]
         }
@@ -425,23 +423,13 @@
             {
               "type": "text",
               "html": "Tap to begin.",
+              "action": "next",
               "x": 6,
               "y": 78,
               "w": 88,
               "h": 18,
               "classList": ["caption", "fade-in"],
               "showAt": 0
-            },
-            {
-              "type": "button",
-              "text": "Start",
-              "action": "next",
-              "x": 70,
-              "y": 86,
-              "w": 24,
-              "h": 10,
-              "classList": ["button", "pop-in"],
-              "showAt": 250
             }
           ]
         },
@@ -711,17 +699,6 @@
               "h": 18,
               "classList": ["caption", "fade-in"],
               "showAt": 200
-            },
-            {
-              "type": "button",
-              "text": "Return",
-              "action": "next",
-              "x": 70,
-              "y": 86,
-              "w": 24,
-              "h": 10,
-              "classList": ["button", "pop-in"],
-              "showAt": 250
             }
           ]
         }
@@ -750,15 +727,14 @@
               "showAt": 0
             },
             {
-              "type": "button",
-              "text": "Start",
+              "type": "hotspot",
               "action": "next",
-              "x": 70,
-              "y": 86,
-              "w": 24,
-              "h": 10,
-              "classList": ["button", "pop-in"],
-              "showAt": 250
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
             }
           ]
         },
@@ -813,15 +789,14 @@
               "showAt": 200
             },
             {
-              "type": "button",
-              "text": "Return",
+              "type": "hotspot",
               "action": "next",
-              "x": 70,
-              "y": 86,
-              "w": 24,
-              "h": 10,
-              "classList": ["button", "pop-in"],
-              "showAt": 250
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
             }
           ]
         }
