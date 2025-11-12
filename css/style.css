@@ -194,6 +194,37 @@ body {
   }
 }
 
+@media (max-width: 1000px) and (orientation: landscape) {
+  .splash-container {
+    overflow: hidden;
+  }
+  .splash-logo {
+    margin-top: 0px;
+    width: 100px;
+  }
+  .splash-title {
+    display: flex;
+    font-size: 10vh;
+    gap: 8px;
+    margin: 0 auto;
+  }
+  .splash-button-container h1 {
+    font-size: 20px;
+  }
+  .splash-button-container {
+    height: 50vh;
+    padding: 0;
+  }
+  .splash-buttons {
+    align-items: center;
+    display: flex;
+    gap: 14px 12px;
+    justify-content: space-around;
+    margin: 0;
+    width: 100%;
+  }
+}
+
 /* Stage container keeps a consistent aspect ratio and letterboxes on tall screens. */
 .stage {
   width: min(100vw, 100vh * (16 / 9));
