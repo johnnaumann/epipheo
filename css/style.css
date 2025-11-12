@@ -148,6 +148,52 @@ body {
   border: 0 !important;
 }
 
+/* Mobile */
+@media (max-width: 768px) and (orientation: portrait) {
+  .splash-container {
+    overflow: hidden;
+  }
+  .splash-logo {
+    width: 100px;
+  }
+  .splash-title {
+    font-size: 10vh;
+  }
+  .splash-button-container h1 {
+    font-size: 20px;
+  }
+  .splash-button-container {
+    height: 50vh;
+    padding: 0;
+  }
+  .splash-buttons {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px 12px;
+    margin: 0;
+    position: relative;
+    justify-items: center;
+  }
+  .splash-button {
+    position: absolute;
+  }
+  .splash-buttons .splash-button:nth-child(1) {
+    left: -8vw;
+    top: 0vh;
+  }
+
+  .splash-buttons .splash-button:nth-child(2) {
+    right: -42vw;
+    top: 8vh;
+  }
+
+  .splash-buttons .splash-button:nth-child(3) {
+    left: 0vw;
+    top: 28vh;
+  }
+}
+
 /* Stage container keeps a consistent aspect ratio and letterboxes on tall screens. */
 .stage {
   width: min(100vw, 100vh * (16 / 9));
