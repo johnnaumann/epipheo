@@ -147,15 +147,22 @@ function buildSplashButtons() {
   const paths = getPathsConfig();
 
   paths.forEach((pathDefinition, index) => {
-    const pathButton = document.createElement("button");
-    pathButton.type = "button";
-    pathButton.className = "splash-button";
-    pathButton.textContent = pathDefinition.title || `Path ${index + 1}`;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "splash-button";
+
+    const img = document.createElement("img");
+    img.src = pathDefinition.image;
+    img.alt = pathDefinition.title || `Path ${index + 1}`;
+    img.decoding = "async";
+    img.loading = "lazy";
+    img.className = "splash-button-img";
 
     const onSelect = () => selectPath(index);
-    pathButton.addEventListener("click", onSelect);
+    btn.addEventListener("click", onSelect);
 
-    buttonsWrapper.appendChild(pathButton);
+    btn.appendChild(img);
+    buttonsWrapper.appendChild(btn);
   });
 }
 

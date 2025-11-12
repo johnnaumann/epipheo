@@ -2,6 +2,7 @@
   "paths": [
     {
       "title": "Bank",
+      "image": "media/splash/bank.png",
       "slides": [
         {
           "base": {
@@ -410,6 +411,7 @@
     },
     {
       "title": "Meal",
+      "image": "media/splash/meal.png",
       "slides": [
         {
           "base": {
@@ -706,6 +708,7 @@
     },
     {
       "title": "Travel",
+      "image": "media/splash/plane.png",
       "slides": [
         {
           "base": {

@@ -69,7 +69,8 @@ body {
 
 /* Splash screen layout uses a column with a responsive grid of buttons. */
 .splash-container {
-  background: #20003f;
+  background: #20003f url(../media/splash/background.png) no-repeat no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -90,7 +91,7 @@ body {
 }
 .splash-title {
   color: #f5f7fb;
-  font-size: 20vh;
+  font-size: 16vh;
   font-weight: 700;
   line-height: 0.85;
   margin: 0;
@@ -101,40 +102,50 @@ body {
 }
 .splash-button-container {
   background: #4f1c99;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 35vh;
   padding: 10px 30px;
   text-transform: uppercase;
   width: 100%;
 }
 .splash-buttons {
-  width: 100%;
+  align-items: center;
   display: grid;
-  gap: 16px;
+  gap: 0px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 2vh auto 0;
+  width: 80%;
 }
 .splash-button {
   appearance: none;
-  background: #ffffff;
-  border: 3px solid #000;
-  border-radius: 12px;
-  padding: 16px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #0b0d12;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
-
-  text-transform: uppercase;
-  transition: transform 120ms ease, filter 120ms ease;
+  overflow: hidden;
+  transition: transform 120ms ease-in-out;
+  aspect-ratio: 16 / 9;
+  display: block;
+  width: 100%;
 }
-
+.splash-button-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
 .splash-button:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.02);
+  transform: scale(1.1);
 }
+.splash-button:focus,
+.splash-button:focus-visible,
 .splash-button:active {
-  transform: translateY(0);
+  outline: 0 !important;
+  box-shadow: none !important;
+  border: 0 !important;
 }
 
 /* Stage container keeps a consistent aspect ratio and letterboxes on tall screens. */
