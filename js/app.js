@@ -216,6 +216,9 @@ function renderSlide() {
  * @param {number} pathIndex
  */
 function selectPath(pathIndex) {
+  const a = document.getElementById("click1");
+  a.currentTime = 0;
+  a.play();
   setState({ mode: "RUNNING", pathIndex, slideIndex: 0 });
 }
 
@@ -223,20 +226,23 @@ function selectPath(pathIndex) {
  * Advances to the next slide, or returns to the splash when the path ends.
  */
 function moveToNextSlide() {
-  const c = document.getElementById("click");
-  c.currentTime = 0;
-  c.play();
+  const a = document.getElementById("click2");
+  a.currentTime = 0;
+  a.play();
 
-  const paths = getPathsConfig();
-  const currentPath = paths[appState.pathIndex];
-  const nextIndex = appState.slideIndex + 1;
+  // Advance on the next frame so the audio element isn't torn down mid-start
+  requestAnimationFrame(() => {
+    const paths = getPathsConfig();
+    const currentPath = paths[appState.pathIndex];
+    const nextIndex = appState.slideIndex + 1;
 
-  if (nextIndex >= currentPath.slides.length) {
-    returnToSplash();
-    return;
-  }
+    if (nextIndex >= currentPath.slides.length) {
+      returnToSplash();
+      return;
+    }
 
-  setState({ mode: "RUNNING", slideIndex: nextIndex });
+    setState({ mode: "RUNNING", slideIndex: nextIndex });
+  });
 }
 
 /**
