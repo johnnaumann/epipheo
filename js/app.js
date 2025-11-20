@@ -381,6 +381,7 @@ function createBaseMediaElement(base) {
     video.style.height = "100%";
     video.style.opacity = "";
     video.style.pointerEvents = "";
+    video.removeAttribute("preload");
 
     try {
       video.currentTime = 0;
@@ -839,7 +840,7 @@ function getOrCreatePreloadedVideo(base) {
     const pool = getOrCreatePreloadPool();
 
     video = document.createElement("video");
-    video.preload = "auto";
+    video.preload = "metadata";
     video.src = base.src;
     video.playsInline = true;
     video.muted = base.muted !== false;
@@ -857,23 +858,6 @@ function getOrCreatePreloadedVideo(base) {
     video.style.pointerEvents = "none";
 
     pool.appendChild(video);
-
-    // Nudge some browsers to actually fill the buffer:
-    const playPromise = video.play();
-    if (playPromise && typeof playPromise.then === "function") {
-      playPromise
-        .then(() => {
-          video.pause();
-          try {
-            video.currentTime = 0;
-          } catch {
-            // Ignore seek errors.
-          }
-        })
-        .catch(() => {
-          // Autoplay might be blocked; preload="auto" still helps.
-        });
-    }
 
     videoElementCache.set(base.src, video);
   }
