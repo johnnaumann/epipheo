@@ -38,7 +38,7 @@ async function initializeApplication() {
   try {
     const config = await fetchSlidesConfiguration(APP_CONSTANTS.slidesUrl);
     appState.config = config;
-
+    preloadFirstVideoForEachPath();
     buildSplashButtons();
     setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
   } catch {
@@ -480,14 +480,110 @@ function preloadNextPrimaryAsset() {
     img.src = base.src;
     registerTeardownHandler(() => {});
   } else if (base.type === "video" && base.src) {
-    const vid = document.createElement("video");
-    vid.preload = "metadata";
-    vid.src = base.src;
-    registerTeardownHandler(() => {
-      vid.removeAttribute("src");
-      vid.load();
-    });
+    // Fully preload and keep in cache; no teardown to avoid losing buffer.
+    preloadVideoSource(base.src);
   }
+}
+
+/**
+ * Simple registry to ensure we only preload each video src once.
+ */
+const videoPreloadRegistry = new Set();
+
+/**
+ * Ensures a hidden "pool" element exists to hold preloaded media in the DOM.
+ * Keeping elements attached makes it more likely the browser retains the buffer.
+ *
+ * @returns {HTMLElement}
+ */
+function getOrCreatePreloadPool() {
+  let pool = document.getElementById("preload-pool");
+  if (!pool) {
+    pool = document.createElement("div");
+    pool.id = "preload-pool";
+    pool.style.position = "fixed";
+    pool.style.inset = "0";
+    pool.style.width = "0";
+    pool.style.height = "0";
+    pool.style.overflow = "hidden";
+    pool.style.opacity = "0";
+    pool.setAttribute("aria-hidden", "true");
+    document.body.appendChild(pool);
+  }
+  return pool;
+}
+
+/**
+ * Preload a video so it is fully buffered in the background.
+ * Uses preload="auto" and a muted play/pause nudge to encourage buffering.
+ *
+ * @param {string} src
+ */
+function preloadVideoSource(src) {
+  if (!src || videoPreloadRegistry.has(src)) return;
+  videoPreloadRegistry.add(src);
+
+  const pool = getOrCreatePreloadPool();
+
+  const video = document.createElement("video");
+  video.preload = "auto";
+  video.src = src;
+  video.muted = true;
+  video.playsInline = true;
+
+  // Make sure it never flashes on screen or intercepts pointer events.
+  video.style.position = "absolute";
+  video.style.width = "1px";
+  video.style.height = "1px";
+  video.style.opacity = "0";
+  video.style.pointerEvents = "none";
+
+  pool.appendChild(video);
+
+  const onCanPlayThrough = () => {
+    video.removeEventListener("canplaythrough", onCanPlayThrough);
+    // At this point the browser believes it can play through without buffering.
+    // We don't need to do anything else; the buffer is kept for future use.
+  };
+  video.addEventListener("canplaythrough", onCanPlayThrough);
+
+  // Nudge some browsers (especially Safari) to aggressively buffer:
+  const playPromise = video.play();
+  if (playPromise && typeof playPromise.then === "function") {
+    playPromise
+      .then(() => {
+        video.pause();
+        video.currentTime = 0;
+      })
+      .catch(() => {
+        // Autoplay might be blocked; preload="auto" still encourages buffering.
+      });
+  }
+}
+
+/**
+ * For each path, find the first slide that uses a video base
+ * and preload that video so the initial transition into the path
+ * has no visible buffering.
+ */
+function preloadFirstVideoForEachPath() {
+  const paths = getPathsConfig();
+  paths.forEach((pathDefinition) => {
+    if (!Array.isArray(pathDefinition.slides)) return;
+
+    let firstVideoSrc = null;
+    for (const slide of pathDefinition.slides) {
+      const base = slide?.base;
+      if (base?.type === "video" && base.src) {
+        firstVideoSrc = base.src;
+        break;
+      }
+    }
+
+    if (firstVideoSrc) {
+      preloadVideoSource(firstVideoSrc);
+    }
+  });
 }
 
 /**
