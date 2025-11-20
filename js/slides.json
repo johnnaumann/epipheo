@@ -1173,42 +1173,6 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken09.mp4",
-            "alt": "Chicken frame 09"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
             "src": "media/chicken/chicken10.mp4",
             "alt": "Chicken frame 10"
           },
@@ -1306,9 +1270,9 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/chicken/chicken18.jpg",
-            "alt": "Chicken frame 18"
+            "type": "video",
+            "src": "media/chicken/chicken09.mp4",
+            "alt": "Chicken frame 09"
           },
           "advance": "click",
           "preloadNext": true,
@@ -1323,7 +1287,7 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
+              "showAt": 10000,
               "hideAt": null
             },
             {
