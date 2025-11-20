@@ -752,6 +752,8 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
+              "autoAdvance": true,
+              "delay": 1000,
               "showAt": 1000,
               "hideAt": 4000
             },
@@ -764,6 +766,8 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
+              "autoAdvance": true,
+              "delay": 2000,
               "showAt": 4000,
               "hideAt": 7000
             },
@@ -771,11 +775,14 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-04.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
+              "autoAdvance": true,
+              "delay": 2000,
               "showAt": 7000,
               "hideAt": 10000
             },

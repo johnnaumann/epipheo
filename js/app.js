@@ -363,8 +363,12 @@ function createBaseMediaElement(base) {
  * Overlays with `persistent: true` are rendered once at the start
  * and never removed (good for skip buttons, etc.).
  *
- * Optional `delay` (ms) on a sequential overlay waits before showing it
- * after the click that advances to it.
+ * For overlays with `autoAdvance: true`, `delay` is interpreted as
+ * "how long this overlay stays on screen before automatically
+ * advancing to the next overlay".
+ *
+ * For overlays without `autoAdvance`, `delay` (if present) is a
+ * pre-show delay before the overlay appears after the click.
  *
  * @param {HTMLElement} stageRoot
  * @param {HTMLElement} stageInner
@@ -404,9 +408,21 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
   let currentIndex = 0;
   let currentElement = null;
   let isWaiting = false;
-  let overlayDelayTimerId = null;
+  let showTimerId = null; // pre-show delay timer (non-autoAdvance)
+  let autoTimerId = null; // post-show auto-advance timer (autoAdvance)
 
-  const showOverlay = (index) => {
+  const clearTimers = () => {
+    if (showTimerId != null) {
+      window.clearTimeout(showTimerId);
+      showTimerId = null;
+    }
+    if (autoTimerId != null) {
+      window.clearTimeout(autoTimerId);
+      autoTimerId = null;
+    }
+  };
+
+  const showOverlayNow = (index) => {
     if (currentElement && currentElement.parentNode === stageInner) {
       stageInner.removeChild(currentElement);
     }
@@ -428,37 +444,64 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
     stageInner.appendChild(overlayElement);
     currentElement = overlayElement;
     isWaiting = false;
+
+    // If this overlay should auto-advance, schedule it.
+    const dwell =
+      overlayDefinition &&
+      overlayDefinition.autoAdvance === true &&
+      typeof overlayDefinition.delay === "number" &&
+      overlayDefinition.delay > 0
+        ? overlayDefinition.delay
+        : 0;
+
+    if (dwell > 0) {
+      autoTimerId = window.setTimeout(() => {
+        autoTimerId = null;
+        advance();
+      }, dwell);
+    }
   };
 
   const scheduleOverlay = (index) => {
+    clearTimers();
+
     const def = sequenceDefs[index];
-    const delay =
-      def && typeof def.delay === "number" && def.delay > 0 ? def.delay : 0;
-
-    if (overlayDelayTimerId != null) {
-      window.clearTimeout(overlayDelayTimerId);
-      overlayDelayTimerId = null;
-    }
-
-    // Remove current overlay immediately when advancing
-    if (currentElement && currentElement.parentNode === stageInner) {
-      stageInner.removeChild(currentElement);
+    if (!def) {
+      if (currentElement && currentElement.parentNode === stageInner) {
+        stageInner.removeChild(currentElement);
+      }
       currentElement = null;
+      return;
     }
+
+    // autoAdvance overlays appear immediately; delay is used as dwell time.
+    if (def.autoAdvance === true) {
+      showOverlayNow(index);
+      return;
+    }
+
+    // Non-autoAdvance: delay is pre-show delay before overlay appears.
+    const delay =
+      typeof def.delay === "number" && def.delay > 0 ? def.delay : 0;
 
     if (delay > 0) {
+      if (currentElement && currentElement.parentNode === stageInner) {
+        stageInner.removeChild(currentElement);
+        currentElement = null;
+      }
       isWaiting = true;
-      overlayDelayTimerId = window.setTimeout(() => {
-        overlayDelayTimerId = null;
-        showOverlay(index);
+      showTimerId = window.setTimeout(() => {
+        showTimerId = null;
+        showOverlayNow(index);
       }, delay);
     } else {
-      showOverlay(index);
+      showOverlayNow(index);
     }
   };
 
   const advance = () => {
-    if (isWaiting) return; // ignore clicks during delay
+    if (isWaiting) return; // ignore clicks while waiting for pre-show delay
+    clearTimers();
 
     if (currentIndex < sequenceDefs.length - 1) {
       currentIndex += 1;
@@ -472,7 +515,7 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
   // Expose to overlay buttons/hotspots with action="next"
   overlayAdvanceHandler = advance;
 
-  // Initial overlay: respect its delay, too, if provided.
+  // Initial overlay: respect autoAdvance/delay semantics.
   scheduleOverlay(currentIndex);
 
   // Stage click advances overlays/slide
@@ -482,9 +525,7 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
   stageRoot.addEventListener("click", stageClickHandler);
   registerTeardownHandler(() => {
     stageRoot.removeEventListener("click", stageClickHandler);
-    if (overlayDelayTimerId != null) {
-      window.clearTimeout(overlayDelayTimerId);
-    }
+    clearTimers();
     overlayAdvanceHandler = null;
   });
 }
