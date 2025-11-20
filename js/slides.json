@@ -447,7 +447,7 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken01.jpg",
+            "src": "media/chicken/chicken01.mp4",
             "alt": "Chicken frame 01"
           },
           "advance": "click",
@@ -469,7 +469,7 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken02.jpg",
+            "src": "media/chicken/chicken02.mp4",
             "alt": "Chicken frame 02"
           },
           "advance": "click",
@@ -500,7 +500,7 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken03.jpg",
+            "src": "media/chicken/chicken03.mp4",
             "alt": "Chicken frame 03"
           },
           "advance": "click",
@@ -531,8 +531,8 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken05.jpg",
-            "alt": "Chicken frame 05"
+            "src": "media/chicken/chicken04.mp4",
+            "alt": "Chicken frame 03"
           },
           "advance": "click",
           "preloadNext": true,
@@ -562,7 +562,70 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken07.jpg",
+            "src": "media/chicken/chicken05.mp4",
+            "alt": "Chicken frame 05"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+
+        {
+          "base": {
+            "type": "video",
+            "src": "media/chicken/chicken06.mp4",
+            "alt": "Chicken frame 06"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Tap to continue.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/chicken/chicken07.mp4",
             "alt": "Chicken frame 07"
           },
           "advance": "click",
@@ -593,7 +656,7 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken08.jpg",
+            "src": "media/chicken/chicken08.mp4",
             "alt": "Chicken frame 08"
           },
           "advance": "click",
@@ -624,7 +687,7 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken10.jpg",
+            "src": "media/chicken/chicken10.mp4",
             "alt": "Chicken frame 10"
           },
           "advance": "click",
@@ -655,7 +718,7 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken11.jpg",
+            "src": "media/chicken/chicken11.mp4",
             "alt": "Chicken frame 11"
           },
           "advance": "click",
@@ -685,7 +748,7 @@
         },
         {
           "base": {
-            "type": "video",
+            "type": "image",
             "src": "media/chicken/chicken12.jpg",
             "alt": "Chicken frame 12"
           },
@@ -716,7 +779,7 @@
         },
         {
           "base": {
-            "type": "video",
+            "type": "image",
             "src": "media/chicken/chicken18.jpg",
             "alt": "Chicken frame 18"
           },
