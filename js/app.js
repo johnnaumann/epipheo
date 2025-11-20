@@ -23,6 +23,13 @@ const appState = {
 };
 
 /**
+ * Cache of video elements keyed by src so we can
+ * preload once and reuse the exact same node when
+ * rendering the slide.
+ */
+const videoElementCache = new Map();
+
+/**
  * Bootstraps the application once the DOM is ready so the initial paint is deterministic.
  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -285,16 +292,39 @@ function createBaseMediaElement(base) {
   }
 
   if (base?.type === "video") {
-    const video = document.createElement("video");
+    const video = getOrCreatePreloadedVideo(base);
+    if (!video) {
+      const fallback = document.createElement("div");
+      fallback.className = "stage-media-fallback";
+      fallback.textContent = "Video unavailable";
+      return fallback;
+    }
+
+    // Ensure stage styling when actually shown.
     video.className = "stage-media";
-    if (base.poster) video.poster = base.poster;
-    video.src = base.src || "";
-    video.playsInline = true;
-    video.muted = base.muted !== false;
+    video.style.position = "absolute";
+    video.style.inset = "0";
+    video.style.left = "";
+    video.style.top = "";
+    video.style.width = "100%";
+    video.style.height = "100%";
+    video.style.opacity = "";
+    video.style.pointerEvents = "";
+
+    try {
+      video.currentTime = 0;
+    } catch {
+      // Ignore seek errors on some platforms.
+    }
+
     video.autoplay = true;
-    video.controls = base.controls === true;
-    video.setAttribute("aria-label", base.caption || "Video");
-    video.play().catch(() => {});
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.then === "function") {
+      playPromise.catch(() => {
+        // Autoplay might be blocked; ignore.
+      });
+    }
+
     return video;
   }
 
@@ -480,19 +510,15 @@ function preloadNextPrimaryAsset() {
     img.src = base.src;
     registerTeardownHandler(() => {});
   } else if (base.type === "video" && base.src) {
-    // Fully preload and keep in cache; no teardown to avoid losing buffer.
-    preloadVideoSource(base.src);
+    // Precreate and buffer the real video element for reuse.
+    getOrCreatePreloadedVideo(base);
   }
 }
 
 /**
- * Simple registry to ensure we only preload each video src once.
- */
-const videoPreloadRegistry = new Set();
-
-/**
  * Ensures a hidden "pool" element exists to hold preloaded media in the DOM.
- * Keeping elements attached makes it more likely the browser retains the buffer.
+ * Keeping elements attached while buffering makes it more likely the browser
+ * retains the buffer.
  *
  * @returns {HTMLElement}
  */
@@ -507,6 +533,7 @@ function getOrCreatePreloadPool() {
     pool.style.height = "0";
     pool.style.overflow = "hidden";
     pool.style.opacity = "0";
+    pool.style.pointerEvents = "none";
     pool.setAttribute("aria-hidden", "true");
     document.body.appendChild(pool);
   }
@@ -514,51 +541,77 @@ function getOrCreatePreloadPool() {
 }
 
 /**
- * Preload a video so it is fully buffered in the background.
- * Uses preload="auto" and a muted play/pause nudge to encourage buffering.
+ * Create (if needed) and preload a video element
+ * for the given base config, parked offscreen.
+ *
+ * @param {Object} base
+ * @returns {HTMLVideoElement|null}
+ */
+function getOrCreatePreloadedVideo(base) {
+  if (!base?.src) return null;
+
+  let video = videoElementCache.get(base.src);
+  if (!video) {
+    const pool = getOrCreatePreloadPool();
+
+    video = document.createElement("video");
+    video.preload = "auto";
+    video.src = base.src;
+    video.playsInline = true;
+    video.muted = base.muted !== false;
+    video.autoplay = false;
+    video.controls = base.controls === true;
+    video.setAttribute("aria-label", base.caption || "Video");
+
+    // Park it safely offscreen while it buffers.
+    video.style.position = "absolute";
+    video.style.left = "-9999px";
+    video.style.top = "0";
+    video.style.width = "1px";
+    video.style.height = "1px";
+    video.style.opacity = "0";
+    video.style.pointerEvents = "none";
+
+    pool.appendChild(video);
+
+    // Nudge some browsers to actually fill the buffer:
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.then === "function") {
+      playPromise
+        .then(() => {
+          video.pause();
+          try {
+            video.currentTime = 0;
+          } catch {
+            // Ignore seek errors.
+          }
+        })
+        .catch(() => {
+          // Autoplay might be blocked; preload="auto" still helps.
+        });
+    }
+
+    videoElementCache.set(base.src, video);
+  }
+
+  // Keep properties up to date per slide use.
+  video.muted = base.muted !== false;
+  video.controls = base.controls === true;
+  video.setAttribute("aria-label", base.caption || "Video");
+  if (base.poster) video.poster = base.poster;
+
+  return video;
+}
+
+/**
+ * Preload a video via the shared preloaded-element path.
+ * Kept for compatibility with existing calls.
  *
  * @param {string} src
  */
 function preloadVideoSource(src) {
-  if (!src || videoPreloadRegistry.has(src)) return;
-  videoPreloadRegistry.add(src);
-  console.log("preload video", src);
-  const pool = getOrCreatePreloadPool();
-
-  const video = document.createElement("video");
-  video.preload = "auto";
-  video.src = src;
-  video.muted = true;
-  video.playsInline = true;
-
-  // Make sure it never flashes on screen or intercepts pointer events.
-  video.style.position = "absolute";
-  video.style.width = "1px";
-  video.style.height = "1px";
-  video.style.opacity = "0";
-  video.style.pointerEvents = "none";
-
-  pool.appendChild(video);
-
-  const onCanPlayThrough = () => {
-    video.removeEventListener("canplaythrough", onCanPlayThrough);
-    // At this point the browser believes it can play through without buffering.
-    // We don't need to do anything else; the buffer is kept for future use.
-  };
-  video.addEventListener("canplaythrough", onCanPlayThrough);
-
-  // Nudge some browsers (especially Safari) to aggressively buffer:
-  const playPromise = video.play();
-  if (playPromise && typeof playPromise.then === "function") {
-    playPromise
-      .then(() => {
-        video.pause();
-        video.currentTime = 0;
-      })
-      .catch(() => {
-        // Autoplay might be blocked; preload="auto" still encourages buffering.
-      });
-  }
+  if (!src) return;
+  getOrCreatePreloadedVideo({ type: "video", src });
 }
 
 /**
@@ -571,17 +624,12 @@ function preloadFirstVideoForEachPath() {
   paths.forEach((pathDefinition) => {
     if (!Array.isArray(pathDefinition.slides)) return;
 
-    let firstVideoSrc = null;
     for (const slide of pathDefinition.slides) {
       const base = slide?.base;
       if (base?.type === "video" && base.src) {
-        firstVideoSrc = base.src;
+        getOrCreatePreloadedVideo(base);
         break;
       }
-    }
-
-    if (firstVideoSrc) {
-      preloadVideoSource(firstVideoSrc);
     }
   });
 }
