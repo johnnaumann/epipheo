@@ -495,7 +495,7 @@ function preloadVideoSource(src) {
   if (!src) return;
 
   const vid = document.createElement("video");
-  vid.preload = "auto"; // "metadata" if you want to be lighter
+  vid.preload = "metadata";
   vid.src = src;
   vid.muted = true;
   vid.playsInline = true;

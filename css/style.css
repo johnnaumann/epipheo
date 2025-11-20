@@ -314,7 +314,7 @@ body {
   pointer-events: auto;
 }
 
-/* Hotspots: no bevel, no focus ring, no tap highlight — cursor only */
+/* Hotspots */
 .overlay-hotspot,
 .hotspot {
   appearance: none;
