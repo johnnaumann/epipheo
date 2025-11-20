@@ -193,7 +193,9 @@ function renderSlide() {
 
   const currentPath = getPathsConfig()[appState.pathIndex];
   const currentSlide = currentPath.slides[appState.slideIndex];
+
   const overlays = currentSlide.overlays || [];
+  preloadOverlayImagesForSlide(currentSlide);
 
   const baseMedia = createBaseMediaElement(currentSlide.base);
   stageInner.appendChild(baseMedia);
@@ -718,6 +720,9 @@ function preloadNextPrimaryAsset() {
   const nextSlide = currentPath.slides[nextIndex];
   if (nextSlide.preloadNext === false) return;
 
+  // Preload overlay images for the next slide as well.
+  preloadOverlayImagesForSlide(nextSlide);
+
   const base = nextSlide.base || {};
   if (base.type === "image" && base.src) {
     const img = new Image();
@@ -727,6 +732,24 @@ function preloadNextPrimaryAsset() {
     // Precreate and buffer the real video element for reuse.
     getOrCreatePreloadedVideo(base);
   }
+}
+
+/**
+ * Preloads all image overlays for a given slide so they
+ * are in the browser cache before they are shown.
+ *
+ * @param {Object} slide
+ */
+function preloadOverlayImagesForSlide(slide) {
+  if (!slide || !Array.isArray(slide.overlays)) return;
+
+  slide.overlays.forEach((overlay) => {
+    if (overlay && overlay.type === "image" && overlay.src) {
+      const img = new Image();
+      img.src = overlay.src;
+      // No teardown needed; browser manages cache.
+    }
+  });
 }
 
 /**
