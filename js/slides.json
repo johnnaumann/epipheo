@@ -6,8 +6,8 @@
       "slides": [
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank01.jpg",
+            "type": "video",
+            "src": "media/bank/bank01.mp4",
             "alt": "Bank frame 01"
           },
           "advance": "click",
@@ -37,8 +37,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank02.jpg",
+            "type": "video",
+            "src": "media/bank/bank02.mp4",
             "alt": "Bank frame 02"
           },
           "advance": "click",
@@ -68,8 +68,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank03.jpg",
+            "type": "video",
+            "src": "media/bank/bank03.mp4",
             "alt": "Bank frame 03"
           },
           "advance": "click",
@@ -99,8 +99,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank04.jpg",
+            "type": "video",
+            "src": "media/bank/bank04.mp4",
             "alt": "Bank frame 04"
           },
           "advance": "click",
@@ -130,8 +130,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank05.jpg",
+            "type": "video",
+            "src": "media/bank/bank05.mp4",
             "alt": "Bank frame 05"
           },
           "advance": "click",
@@ -161,8 +161,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank06.jpg",
+            "type": "video",
+            "src": "media/bank/bank06.mp4",
             "alt": "Bank frame 06"
           },
           "advance": "click",
@@ -192,8 +192,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank07.jpg",
+            "type": "video",
+            "src": "media/bank/bank07.mp4",
             "alt": "Bank frame 07"
           },
           "advance": "click",
@@ -223,8 +223,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank08.jpg",
+            "type": "video",
+            "src": "media/bank/bank08.mp4",
             "alt": "Bank frame 08"
           },
           "advance": "click",
@@ -254,8 +254,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank09.jpg",
+            "type": "video",
+            "src": "media/bank/bank09.mp4",
             "alt": "Bank frame 09"
           },
           "advance": "click",
@@ -285,8 +285,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank10.jpg",
+            "type": "video",
+            "src": "media/bank/bank10.mp4",
             "alt": "Bank frame 10"
           },
           "advance": "click",
@@ -316,8 +316,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank11.jpg",
+            "type": "video",
+            "src": "media/bank/bank11.mp4",
             "alt": "Bank frame 11"
           },
           "advance": "click",
@@ -347,8 +347,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank12.jpg",
+            "type": "video",
+            "src": "media/bank/bank12.mp4",
             "alt": "Bank frame 12"
           },
           "advance": "click",
@@ -378,9 +378,40 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/bank/bank13.jpg",
+            "type": "video",
+            "src": "media/bank/bank13.mp4",
             "alt": "Bank frame 13"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/bank/bank14.mp4",
+            "alt": "Bank frame 14"
           },
           "advance": "click",
           "preloadNext": true,
@@ -415,7 +446,7 @@
       "slides": [
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken01.jpg",
             "alt": "Chicken frame 01"
           },
@@ -437,7 +468,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken02.jpg",
             "alt": "Chicken frame 02"
           },
@@ -468,7 +499,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken03.jpg",
             "alt": "Chicken frame 03"
           },
@@ -499,7 +530,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken05.jpg",
             "alt": "Chicken frame 05"
           },
@@ -530,7 +561,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken07.jpg",
             "alt": "Chicken frame 07"
           },
@@ -561,7 +592,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken08.jpg",
             "alt": "Chicken frame 08"
           },
@@ -592,7 +623,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken10.jpg",
             "alt": "Chicken frame 10"
           },
@@ -623,7 +654,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken11.jpg",
             "alt": "Chicken frame 11"
           },
@@ -654,7 +685,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken12.jpg",
             "alt": "Chicken frame 12"
           },
@@ -685,7 +716,7 @@
         },
         {
           "base": {
-            "type": "image",
+            "type": "video",
             "src": "media/chicken/chicken18.jpg",
             "alt": "Chicken frame 18"
           },
@@ -712,8 +743,8 @@
       "slides": [
         {
           "base": {
-            "type": "image",
-            "src": "media/travel/travel01.jpg",
+            "type": "video",
+            "src": "media/travel/travel01.mp4",
             "alt": "Travel frame 01"
           },
           "advance": "click",
@@ -743,8 +774,8 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/travel/travel02.jpg",
+            "type": "video",
+            "src": "media/travel/travel02.mp4",
             "alt": "Travel frame 02"
           },
           "advance": "click",
@@ -774,9 +805,227 @@
         },
         {
           "base": {
-            "type": "image",
-            "src": "media/travel/travel03.jpg",
+            "type": "video",
+            "src": "media/travel/travel03.mp4",
             "alt": "Travel frame 03"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+
+        {
+          "base": {
+            "type": "video",
+            "src": "media/travel/travel04.mp4",
+            "alt": "Travel frame 04"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/travel/travel05.mp4",
+            "alt": "Travel frame 05"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/travel/travel06.mp4",
+            "alt": "Travel frame 06"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/travel/travel07.mp4",
+            "alt": "Travel frame 07"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/travel/travel08.mp4",
+            "alt": "Travel frame 08"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/travel/travel09.mp4",
+            "alt": "Travel frame 09"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "text",
+              "html": "Return to the splash to choose another path.",
+              "x": 6,
+              "y": 78,
+              "w": 88,
+              "h": 18,
+              "classList": ["caption", "fade-in"],
+              "showAt": 200
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/travel/travel10.mp4",
+            "alt": "Travel frame 10"
           },
           "advance": "click",
           "preloadNext": true,

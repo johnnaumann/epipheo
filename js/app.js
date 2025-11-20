@@ -280,14 +280,12 @@ function createBaseMediaElement(base) {
     video.className = "stage-media";
     if (base.poster) video.poster = base.poster;
     video.src = base.src || "";
-    video.playsInline = true; // keeps overlays visible on mobile
-    video.muted = base.muted !== false; // default muted for autoplay policies
-    video.autoplay = base.autoplay === true;
+    video.playsInline = true;
+    video.muted = base.muted !== false;
+    video.autoplay = true;
     video.controls = base.controls === true;
     video.setAttribute("aria-label", base.caption || "Video");
-    if (video.autoplay) {
-      video.play().catch(() => {});
-    }
+    video.play().catch(() => {});
     return video;
   }
 
