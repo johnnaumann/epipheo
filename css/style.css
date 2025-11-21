@@ -296,7 +296,7 @@ body {
 /* Small slide counter, top-right */
 .slide-counter {
   position: absolute;
-  top: 8px;
+  top: 70px;
   right: 8px;
   padding: 3px 8px;
   font-size: 12px;
