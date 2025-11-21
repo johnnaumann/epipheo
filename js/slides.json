@@ -582,6 +582,18 @@
                   "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3"
                 }
               ],
+              "sound": [
+                {
+                  "src": "media/sound/mp3/BGLoops/Chicken_OfficeBG_LOOP-02.mp3",
+                  "loops": true,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "action": "next",
               "x": 0,
               "y": 0,
@@ -1248,6 +1260,11 @@
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
               "action": "next",
+              "music": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3"
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1261,6 +1278,13 @@
               "src": "media/travel/overlays/travel-overlay-02.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1274,6 +1298,13 @@
               "src": "media/travel/overlays/travel-overlay-03.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1310,6 +1341,13 @@
               "src": "media/travel/overlays/travel-overlay-05.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1323,6 +1361,13 @@
               "src": "media/travel/overlays/travel-overlay-04.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1365,6 +1410,17 @@
               "h": 5,
               "classList": ["pop-in"],
               "showAt": 0
+            },
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Travel/plane.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
             }
           ]
         },
@@ -1379,10 +1435,28 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Travel/tear.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
+            },
+            {
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-11.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1396,6 +1470,13 @@
               "src": "media/travel/overlays/travel-overlay-12.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1432,6 +1513,13 @@
               "src": "media/travel/overlays/travel-overlay-06.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1445,6 +1533,13 @@
               "src": "media/travel/overlays/travel-overlay-07.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1481,6 +1576,13 @@
               "src": "media/travel/overlays/travel-overlay-08.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1513,6 +1615,17 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Travel/alert.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
+            },
+            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1535,6 +1648,17 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/disaster.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 1000
+            },
             {
               "type": "button",
               "text": "Skip",
@@ -1563,6 +1687,13 @@
               "src": "media/travel/overlays/travel-overlay-10.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1595,6 +1726,17 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Travel/typing.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
+            },
+            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1617,6 +1759,17 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/BGLoops/Airplane_DinnerTableBG_LOOP.mp3",
+                  "loops": false,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            },
             {
               "type": "button",
               "text": "Skip",
