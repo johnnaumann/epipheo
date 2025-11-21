@@ -15,6 +15,19 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/bank/overlays/bank-overlay-03.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
+            },
+            {
+              "type": "image",
               "src": "media/bank/overlays/bank-overlay-01.png",
               "alt": "Tap to continue",
               "action": "next",
@@ -38,19 +51,6 @@
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 3500,
               "hideAt": 9000
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
             },
             {
               "type": "button",
@@ -89,18 +89,28 @@
               "hideAt": 3000
             },
             {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-05.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 3500,
-              "hideAt": 6000
-            },
+              "type": "button",
+              "text": "Skip",
+              "persistent": true,
+              "action": "skip",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/bank/bank05.mp4",
+            "alt": "Bank frame 05"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
             {
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-06.png",
@@ -116,7 +126,7 @@
             },
             {
               "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
+              "src": "media/bank/overlays/bank-overlay-08.png",
               "alt": "Tap to continue",
               "action": "next",
               "x": 0,
@@ -124,8 +134,8 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
+              "showAt": 5500,
+              "hideAt": 9000
             },
             {
               "type": "button",
@@ -152,6 +162,19 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/bank/overlays/bank-overlay-05.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 3500,
+              "hideAt": 6000
+            },
+            {
+              "type": "image",
               "src": "media/bank/overlays/bank-overlay-07.png",
               "alt": "Tap to continue",
               "action": "next",
@@ -160,32 +183,6 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"]
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-08.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 5500,
-              "hideAt": 9000
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
             },
             {
               "type": "button",
@@ -224,55 +221,6 @@
               "hideAt": 9000
             },
             {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank05.mp4",
-            "alt": "Bank frame 05"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 3000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -309,19 +257,6 @@
               "hideAt": null
             },
             {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -344,20 +279,6 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 3000,
-              "showAt": 3000,
-              "hideAt": null
-            },
             {
               "type": "button",
               "text": "Skip",
@@ -392,19 +313,6 @@
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 2000,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
               "hideAt": null
             },
             {
@@ -444,32 +352,6 @@
               "hideAt": 5000
             },
             {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-13.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 5500,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -494,7 +376,7 @@
           "overlays": [
             {
               "type": "image",
-              "src": "media/bank/overlays/bank-overlay-14.png",
+              "src": "media/bank/overlays/bank-overlay-13.png",
               "alt": "Tap to continue",
               "action": "next",
               "x": 0,
@@ -502,20 +384,7 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
+              "showAt": 5500,
               "hideAt": null
             },
             {
@@ -543,7 +412,7 @@
           "overlays": [
             {
               "type": "image",
-              "src": "media/bank/overlays/bank-overlay-15.png",
+              "src": "media/bank/overlays/bank-overlay-14.png",
               "alt": "Tap to continue",
               "action": "next",
               "x": 0,
@@ -552,19 +421,6 @@
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
               "hideAt": null
             },
             {
@@ -592,7 +448,7 @@
           "overlays": [
             {
               "type": "image",
-              "src": "media/bank/overlays/bank-overlay-16.png",
+              "src": "media/bank/overlays/bank-overlay-15.png",
               "alt": "Tap to continue",
               "action": "next",
               "x": 0,
@@ -605,7 +461,7 @@
             },
             {
               "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
+              "src": "media/bank/overlays/bank-overlay-16.png",
               "alt": "Tap to continue",
               "action": "next",
               "x": 0,
@@ -613,7 +469,7 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
+              "showAt": 1000,
               "hideAt": null
             },
             {
@@ -653,19 +509,6 @@
               "hideAt": null
             },
             {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -693,25 +536,12 @@
               "src": "media/bank/overlays/bank-overlay-18.png",
               "alt": "Tap to continue",
               "action": "next",
-              "x": 0,
+              "x": 10,
               "y": 0,
-              "w": 100,
-              "h": 100,
+              "w": 80,
+              "h": 80,
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
               "hideAt": null
             },
             {
