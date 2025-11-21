@@ -745,62 +745,13 @@
           "overlays": [
             {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-02.png",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
               "music": [
                 {
                   "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3"
                 }
               ],
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/knock.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/BGLoops/Chicken_OfficeBG_LOOP-02.mp3",
-                  "loops": true,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "autoAdvance": true,
-              "delay": 300
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-03.png",
-              "alt": "Tap to continue",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "autoAdvance": true,
-              "delay": 300
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-04.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "autoAdvance": true,
-              "delay": 300
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
               "action": "next",
               "x": 0,
               "y": 0,
@@ -872,19 +823,6 @@
               "delay": 1000
             },
             {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -939,39 +877,6 @@
               "delay": 0
             },
             {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-07.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 5000,
-              "hideAt": 10000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1007,26 +912,7 @@
             },
             {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-08.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-09.png",
+              "src": "media/chicken/overlays/chicken-overlay-07.png",
               "alt": "Tap to continue",
               "action": "next",
               "sound": [
@@ -1043,19 +929,6 @@
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 5000,
               "hideAt": 10000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
             },
             {
               "type": "button",
@@ -1093,7 +966,7 @@
             },
             {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-10.png",
+              "src": "media/chicken/overlays/chicken-overlay-05a.png",
               "alt": "Tap to continue",
               "action": "next",
               "sound": [
@@ -1109,19 +982,6 @@
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
               "delay": 800
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
             },
             {
               "type": "button",
@@ -1160,7 +1020,7 @@
             },
             {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-11.png",
+              "src": "media/chicken/overlays/chicken-overlay-15.png",
               "alt": "Tap to continue",
               "action": "next",
               "sound": [
@@ -1175,20 +1035,7 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "delay": 2000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
+              "delay": 1000
             },
             {
               "type": "button",
@@ -1224,9 +1071,10 @@
               ],
               "delay": 300
             },
+
             {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-12.png",
+              "src": "media/chicken/overlays/chicken-overlay-08.png",
               "alt": "Tap to continue",
               "action": "next",
               "sound": [
@@ -1245,16 +1093,21 @@
             },
             {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "src": "media/chicken/overlays/chicken-overlay-09.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
+              "classList": ["overlay-icon", "fade-in"]
             },
             {
               "type": "button",
@@ -1280,6 +1133,25 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-10.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 800
+            },
+            {
               "type": "sound",
               "sound": [
                 {
@@ -1291,16 +1163,76 @@
               "delay": 300
             },
             {
+              "type": "button",
+              "text": "Skip",
+              "persistent": true,
+              "action": "skip",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/chicken/chicken12.mp4",
+            "alt": "Chicken frame 08"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "src": "media/chicken/overlays/chicken-overlay-11.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 2000
+            },
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-12.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
               "delay": 1000
+            },
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/disaster.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 300
             },
             {
               "type": "button",
@@ -1329,7 +1261,7 @@
               "type": "sound",
               "sound": [
                 {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/point.mp3",
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/reveal.mp3",
                   "loops": false,
                   "stopOthers": false
                 }
@@ -1354,19 +1286,6 @@
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
               "delay": 500
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
             },
             {
               "type": "button",
@@ -1395,12 +1314,11 @@
               "type": "sound",
               "sound": [
                 {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/reveal.mp3",
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/point.mp3",
                   "loops": false,
                   "stopOthers": false
                 }
-              ],
-              "delay": 300
+              ]
             },
             {
               "type": "image",
@@ -1420,19 +1338,6 @@
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
               "delay": 1000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
             },
             {
               "type": "button",
@@ -1478,18 +1383,6 @@
                 }
               ],
               "delay": 1000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 5000
             },
             {
               "type": "button",
