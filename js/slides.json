@@ -1245,6 +1245,19 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/travel/overlays/travel-overlay-01.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
+            },
+            {
+              "type": "image",
               "src": "media/travel/overlays/travel-overlay-02.png",
               "alt": "Tap to continue",
               "action": "next",
@@ -1268,19 +1281,6 @@
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 5500,
               "hideAt": 9000
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
             },
             {
               "type": "button",
@@ -1332,19 +1332,6 @@
               "hideAt": 9000
             },
             {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1368,20 +1355,6 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 2000,
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1400,6 +1373,55 @@
           "base": {
             "type": "video",
             "src": "media/travel/travel04.mp4",
+            "alt": "Travel frame 04"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/travel/overlays/travel-overlay-11.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 3500,
+              "hideAt": 7000
+            },
+            {
+              "type": "image",
+              "src": "media/travel/overlays/travel-overlay-12.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 6500,
+              "hideAt": null
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "persistent": true,
+              "action": "skip",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/travel/travel11.mp4",
             "alt": "Travel frame 04"
           },
           "advance": "click",
@@ -1429,19 +1451,6 @@
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 6500,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
               "hideAt": null
             },
             {
@@ -1481,19 +1490,6 @@
               "hideAt": null
             },
             {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1517,32 +1513,6 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-09.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1565,19 +1535,6 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
             {
               "type": "button",
               "text": "Skip",
@@ -1615,19 +1572,6 @@
               "hideAt": null
             },
             {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1651,19 +1595,6 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
               "type": "button",
               "text": "Skip",
               "persistent": true,
@@ -1686,19 +1617,6 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
             {
               "type": "button",
               "text": "Skip",
