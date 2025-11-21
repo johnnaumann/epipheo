@@ -717,6 +717,73 @@
         },
         {
           "base": {
+            "type": "image",
+            "src": "media/ui/ui-01.png",
+            "alt": "Bank frame 14"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/ui-overlay-01.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "persistent": true,
+              "music": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
+                }
+              ],
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
+                  "loops": false,
+                  "stopOthers": true
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 1000
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/ui-overlay-02.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 1500
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "persistent": true,
+              "action": "skip",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
             "type": "video",
             "src": "media/bank/bank14.mp4",
             "alt": "Bank frame 14"
@@ -1415,6 +1482,73 @@
         },
         {
           "base": {
+            "type": "image",
+            "src": "media/ui/ui-01.png",
+            "alt": "Bank frame 14"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/ui-overlay-01.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "persistent": true,
+              "music": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
+                }
+              ],
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
+                  "loops": false,
+                  "stopOthers": true
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 1000
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/ui-overlay-02.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 1500
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "persistent": true,
+              "action": "skip",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
             "type": "video",
             "src": "media/chicken/chicken09.mp4",
             "alt": "Chicken frame 09"
@@ -1953,6 +2087,73 @@
                 }
               ],
               "delay": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "persistent": true,
+              "action": "skip",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/ui-01.png",
+            "alt": "Bank frame 14"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/ui-overlay-01.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "persistent": true,
+              "music": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
+                }
+              ],
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
+                  "loops": false,
+                  "stopOthers": true
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 1000
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/ui-overlay-02.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 1500
             },
             {
               "type": "button",
