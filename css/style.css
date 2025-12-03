@@ -416,6 +416,32 @@ body {
   cursor: pointer;
 }
 
+/* Overlay video */
+.overlay-video {
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: auto;
+}
+.overlay-video-play {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay-video-play::before {
+  content: "▶";
+  font-size: 5rem;
+  color: #000;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
 /* Loading and error states keep the experience explicit during data issues. */
 .loading {
   color: #e6e8ef;

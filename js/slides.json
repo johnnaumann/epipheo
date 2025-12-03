@@ -22,7 +22,19 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            }
+          ]
         },
         {
           "base": {
@@ -90,7 +102,19 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            }
+          ]
         },
         {
           "base": {
@@ -189,7 +213,19 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            }
+          ]
         },
         {
           "base": {
@@ -210,28 +246,19 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
-        },
-
-        {
-          "base": {
-            "type": "image",
-            "src": "media/ui/overlays/UI_airline-04.jpg",
-            "alt": "Travel frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": []
-        },
-        {
-          "base": {
-            "type": "image",
-            "src": "media/ui/overlays/UI_airline-05.jpg",
-            "alt": "Travel frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "video",
+              "src": "media/travel/travel_ui_loop.mp4",
+              "x": 38.7,
+              "y": 20,
+              "w": 54,
+              "h": 71,
+              "autoplay": false,
+              "controls": false,
+              "loop": true
+            }
+          ]
         },
         {
           "base": {
@@ -241,7 +268,19 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            }
+          ]
         }
       ]
     }

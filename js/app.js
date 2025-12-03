@@ -36,6 +36,7 @@ const videoElementCache = new Map();
 // Track currently playing music and sound effects
 const activeMusicElements = new Set();
 const activeSoundElements = new Set();
+const activeVideoElements = new Set();
 
 // Cache audio elements keyed by src for overlays
 const musicAudioCache = new Map();
@@ -86,6 +87,22 @@ function resolveAudioElement(target) {
     return el instanceof HTMLAudioElement ? el : null;
   }
   return null;
+}
+
+function muteAllVideos(muted) {
+  activeVideoElements.forEach((video) => {
+    try {
+      video.muted = muted;
+    } catch {}
+  });
+}
+
+function pauseAllVideos() {
+  activeVideoElements.forEach((video) => {
+    try {
+      video.pause();
+    } catch {}
+  });
 }
 
 /**
@@ -243,7 +260,7 @@ function buildSplashButtons() {
 }
 
 /**
- * Creates global music/sound toggle buttons in the top-right corner.
+ * Creates global sound toggle buttons in the top-right corner.
  * They persist across modes (splash + stage) and just update appState for now.
  */
 function createGlobalAudioToggles() {
@@ -253,33 +270,11 @@ function createGlobalAudioToggles() {
   const container = document.createElement("div");
   container.className = "global-audio-controls";
 
-  // --- Music button ---
-  const musicBtn = document.createElement("button");
-  musicBtn.type = "button";
-  musicBtn.className = "audio-toggle audio-toggle-music";
-  musicBtn.setAttribute("aria-label", "Toggle music");
-  musicBtn.setAttribute("aria-pressed", "true");
-  musicBtn.innerHTML = `
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M421.84 37.37a25.86 25.86 0 0 0-22.6-4.46L199.92 86.49A32.3 32.3 0 0 0 176 118v226c0 6.74-4.36 12.56-11.11 14.83l-.12.05-52 18C92.88 383.53 80 402 80 423.91a55.54 55.54 0 0 0 23.23 45.63A54.78 54.78 0 0 0 135.34 480a55.82 55.82 0 0 0 17.75-2.93l.38-.13 21.84-7.94A47.84 47.84 0 0 0 208 423.91v-212c0-7.29 4.77-13.21 12.16-15.07l.21-.06L395 150.14a4 4 0 0 1 5 3.86v141.93c0 6.75-4.25 12.38-11.11 14.68l-.25.09-50.89 18.11A49.09 49.09 0 0 0 304 375.92a55.67 55.67 0 0 0 23.23 45.8 54.63 54.63 0 0 0 49.88 7.35l.36-.12 21.84-7.95A47.83 47.83 0 0 0 432 375.92V58a25.74 25.74 0 0 0-10.16-20.63z"></path></svg>
-  `;
-
-  musicBtn.addEventListener("click", () => {
-    appState.musicEnabled = !appState.musicEnabled;
-    updateGlobalAudioTogglesUI();
-
-    if (!appState.musicEnabled) {
-      // Mute button: pause all current music, don't reset position
-      pauseMusic();
-    } else {
-      resumeMusic();
-    }
-  });
-
-  // --- Sound button ---
+  // --- Single unified audio button (uses previous "sound" icon) ---
   const soundBtn = document.createElement("button");
   soundBtn.type = "button";
   soundBtn.className = "audio-toggle audio-toggle-sound";
-  soundBtn.setAttribute("aria-label", "Toggle sound effects");
+  soundBtn.setAttribute("aria-label", "Toggle audio");
   soundBtn.setAttribute("aria-pressed", "true");
   soundBtn.innerHTML = `
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -288,45 +283,65 @@ function createGlobalAudioToggles() {
   `;
 
   soundBtn.addEventListener("click", () => {
-    appState.soundEnabled = !appState.soundEnabled;
+    // Unified flag: both music and sounds use this
+    const nextEnabled = !appState.soundEnabled;
+    appState.soundEnabled = nextEnabled;
+    appState.musicEnabled = nextEnabled;
+
     updateGlobalAudioTogglesUI();
 
-    if (!appState.soundEnabled) {
-      // Turning sound OFF: pause all current sounds
+    if (!nextEnabled) {
+      // Turning audio OFF: pause/stop everything and mute videos
+      pauseMusic();
       pauseSound();
+      muteAllVideos(true);
     } else {
-      // Turning sound ON: try to resume whatever was playing
+      // Turning audio ON: resume and unmute
+      resumeMusic();
       resumeSound();
+      muteAllVideos(false);
     }
   });
 
-  container.appendChild(musicBtn);
   container.appendChild(soundBtn);
-
   document.body.appendChild(container);
 
-  // Initial visual state
+  // Initial visual + video state
   updateGlobalAudioTogglesUI();
+  muteAllVideos(!appState.soundEnabled);
 }
 
 /**
  * Syncs UI state (pressed / off styling) with appState flags.
  */
 function updateGlobalAudioTogglesUI() {
-  const musicBtn = document.querySelector(".audio-toggle-music");
   const soundBtn = document.querySelector(".audio-toggle-sound");
-
-  if (musicBtn) {
-    const on = !!appState.musicEnabled; // true/false, no undefined magic
-    musicBtn.classList.toggle("is-off", !on);
-    musicBtn.setAttribute("aria-pressed", on ? "true" : "false");
-  }
 
   if (soundBtn) {
     const on = !!appState.soundEnabled;
     soundBtn.classList.toggle("is-off", !on);
     soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
   }
+}
+
+function attachFreezeOnLastFrame(video) {
+  if (!video) return;
+  let frozen = false;
+
+  const onTimeUpdate = () => {
+    if (!video.duration || frozen) return;
+    const remaining = video.duration - video.currentTime;
+    if (remaining <= 0.05) {
+      frozen = true;
+      try {
+        video.pause();
+        video.currentTime = Math.max(video.duration - 0.05, 0);
+      } catch {}
+      video.removeEventListener("timeupdate", onTimeUpdate);
+    }
+  };
+
+  video.addEventListener("timeupdate", onTimeUpdate);
 }
 
 /**
@@ -343,11 +358,26 @@ function renderSlide() {
   const currentSlide = currentPath.slides[appState.slideIndex];
 
   const overlays = currentSlide.overlays || [];
+
+  const hasVideoBase = currentSlide.base?.type === "video";
+  if (hasVideoBase) {
+    stopMusic();
+    stopSound();
+  }
+
   preloadOverlayImagesForSlide(currentSlide);
   preloadOverlayAudioForSlide(currentSlide);
 
   const baseMedia = createBaseMediaElement(currentSlide.base);
   stageInner.appendChild(baseMedia);
+
+  if (
+    currentSlide.base?.type === "video" &&
+    currentSlide.advance !== "video-end" &&
+    baseMedia instanceof HTMLVideoElement
+  ) {
+    attachFreezeOnLastFrame(baseMedia);
+  }
 
   const useSequentialOverlays =
     Array.isArray(overlays) &&
@@ -411,9 +441,8 @@ function renderSlide() {
  * @param {number} pathIndex
  */
 function selectPath(pathIndex) {
-  const a = document.getElementById("click1");
-  a.currentTime = 0;
-  a.play();
+  stopMusic();
+  playSound("click1");
   setState({ mode: "RUNNING", pathIndex, slideIndex: 0 });
 }
 
@@ -421,9 +450,7 @@ function selectPath(pathIndex) {
  * Advances to the next slide, or returns to the splash when the path ends.
  */
 function moveToNextSlide() {
-  const a = document.getElementById("click2");
-  a.currentTime = 0;
-  a.play();
+  playSound("click2");
 
   // Advance on the next frame so the audio element isn't torn down mid-start
   requestAnimationFrame(() => {
@@ -446,11 +473,7 @@ function moveToNextSlide() {
  * starts playing inside that same gesture.
  */
 function goToNextSlideFromUserGesture() {
-  const a = document.getElementById("click2");
-  if (a) {
-    a.currentTime = 0;
-    a.play();
-  }
+  playSound("click2");
 
   const paths = getPathsConfig();
   const currentPath = paths[appState.pathIndex];
@@ -493,6 +516,9 @@ function goToNextSlideFromUserGesture() {
 function returnToSplash() {
   stopMusic();
   stopSound();
+  pauseAllVideos();
+  muteAllVideos(true);
+
   const splashBGMusic = getOrCreateSoundAudio(
     "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
   );
@@ -542,6 +568,8 @@ function createBaseMediaElement(base) {
     } catch {
       // Ignore seek errors on some platforms.
     }
+
+    video.muted = !appState.soundEnabled;
 
     video.autoplay = true;
     const playPromise = video.play();
@@ -824,26 +852,61 @@ function createOverlayElement(overlayDefinition) {
     return wrapper;
   }
 
-  if (overlayDefinition.type === "button") {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "overlay-button";
-    button.textContent = overlayDefinition.text || "";
-    wireOverlayAction(button, overlayDefinition.action);
-    wrapper.appendChild(button);
-    return wrapper;
-  }
+  if (overlayDefinition.type === "video") {
+    wrapper.style.pointerEvents = "auto";
+    wrapper.style.cursor = "pointer";
 
-  if (overlayDefinition.type === "hotspot") {
-    const hotspot = document.createElement("button");
-    hotspot.type = "button";
-    hotspot.className = "overlay-hotspot";
-    hotspot.setAttribute(
+    const video = document.createElement("video");
+    video.className = "overlay-video-inner";
+    video.src = overlayDefinition.src || "";
+    video.playsInline = true;
+    video.loop = !!overlayDefinition.loop;
+    video.controls = false;
+
+    if (typeof appState !== "undefined" && "soundEnabled" in appState) {
+      video.muted = !appState.soundEnabled;
+    }
+
+    video.style.width = "100%";
+    video.style.height = "100%";
+    video.style.objectFit = "cover";
+
+    activeVideoElements.add(video);
+    wrapper.appendChild(video);
+
+    const playButton = document.createElement("button");
+    playButton.type = "button";
+    playButton.className = "overlay-video-play";
+    playButton.setAttribute(
       "aria-label",
-      overlayDefinition.ariaLabel || "Continue"
+      overlayDefinition.playLabel || "Play video"
     );
-    wireOverlayAction(hotspot, overlayDefinition.action);
-    wrapper.appendChild(hotspot);
+    wrapper.appendChild(playButton);
+
+    const startPlayback = () => {
+      if (video.paused) {
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+        playButton.style.display = "none";
+      }
+    };
+
+    wrapper.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      startPlayback();
+    });
+
+    if (overlayDefinition.autoplay) {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+      playButton.style.display = "none";
+    }
+
     return wrapper;
   }
 
@@ -1121,7 +1184,7 @@ function getOrCreatePreloadedVideo(base) {
     video.preload = "metadata";
     video.src = base.src;
     video.playsInline = true;
-    video.muted = base.muted !== false;
+    video.muted = !appState.soundEnabled;
     video.autoplay = false;
     video.controls = base.controls === true;
     video.setAttribute("aria-label", base.caption || "Video");
@@ -1141,10 +1204,12 @@ function getOrCreatePreloadedVideo(base) {
   }
 
   // Keep properties up to date per slide use.
-  video.muted = base.muted !== false;
+  video.muted = !appState.soundEnabled;
   video.controls = base.controls === true;
   video.setAttribute("aria-label", base.caption || "Video");
   if (base.poster) video.poster = base.poster;
+
+  activeVideoElements.add(video);
 
   return video;
 }
