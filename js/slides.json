@@ -7,823 +7,64 @@
         {
           "base": {
             "type": "video",
-            "src": "media/bank/bank01.mp4",
+            "src": "media/bank/bank_intro.mp4",
             "alt": "Bank frame 01"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "music": [
-                {
-                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3"
-                }
-              ],
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/BGLoops/Bank_SpaceBG_LOOP.mp3",
-                  "loops": true,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 500,
-              "hideAt": 3000
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-02.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 3500,
-              "hideAt": 9000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank02.mp4",
-            "alt": "Bank frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-04.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 0,
-              "hideAt": 3000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank05.mp4",
-            "alt": "Bank frame 05"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-06.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Bank/cut.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 6500,
-              "hideAt": 9000
-            },
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/BGLoops/Bank_FilmSetBG_LOOP.mp3",
-                  "loops": true,
-                  "stopOthers": true
-                }
-              ],
-              "delay": 500
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-08.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 5500,
-              "hideAt": 9000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank03.mp4",
-            "alt": "Bank frame 03"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-05.png",
-              "alt": "Tap to continue",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "persistent": true,
-              "autoAdvance": true,
-              "delay": 0
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-07.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "autoAdvance": true,
-              "delay": 0
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank04.mp4",
-            "alt": "Bank frame 04"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-09.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2500,
-              "hideAt": 9000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank06.mp4",
-            "alt": "Bank frame 06"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-10.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Bank/alert.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": null
-            },
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/BGLoops/Bank_OfficeEndBG_LOOP.mp3",
-                  "loops": true,
-                  "stopOthers": true
-                }
-              ],
-              "delay": 500
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank07.mp4",
-            "alt": "Bank frame 07"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Bank/oohahh.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank08.mp4",
-            "alt": "Bank frame 08"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-11.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Bank/alert.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank09.mp4",
-            "alt": "Bank frame 09"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-12.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": 5000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank10.mp4",
-            "alt": "Bank frame 10"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-13.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Bank/alert.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Bank/disaster.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 5500,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank11.mp4",
-            "alt": "Bank frame 11"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-14.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank12.mp4",
-            "alt": "Bank frame 12"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-15.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-16.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/bank/bank13.mp4",
-            "alt": "Bank frame 13"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-17.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Bank/oohahh.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/BGLoops/Bank_SpaceBG_LOOP.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
         },
         {
           "base": {
             "type": "image",
-            "src": "media/ui/ui-01.png",
-            "alt": "Bank frame 14"
+            "src": "media/ui/overlays/UI_bank-01.jpg",
+            "alt": "Bank frame 02"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/ui/overlays/ui-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "persistent": true,
-              "music": [
-                {
-                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
-                }
-              ],
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
-                  "loops": false,
-                  "stopOthers": true
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "image",
-              "src": "media/ui/overlays/ui-overlay-02.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1500
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_bank-02.jpg",
+            "alt": "Bank frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_bank-03.jpg",
+            "alt": "Bank frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_bank-04.jpg",
+            "alt": "Bank frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
         },
         {
           "base": {
             "type": "video",
-            "src": "media/bank/bank14.mp4",
-            "alt": "Bank frame 14"
+            "src": "media/bank/bank_outro.mp4",
+            "alt": "Bank frame 01"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/bank/overlays/bank-overlay-18.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 10,
-              "y": 0,
-              "w": 80,
-              "h": 80,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
         }
       ]
     },
@@ -834,763 +75,95 @@
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken01.mp4",
+            "src": "media/chicken/chicken_intro.mp4",
             "alt": "Chicken frame 01"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
-              "alt": "Tap to continue",
-              "music": [
-                {
-                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3"
-                }
-              ],
-              "sound": [
-                {
-                  "src": "media/sound/mp3/BGLoops/Chicken_OfficeBG_LOOP-02.mp3",
-                  "loops": true,
-                  "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken02.mp4",
-            "alt": "Chicken frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": null,
-              "alt": "Tap to continue",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/knock.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "autoAdvance": true,
-              "delay": 1000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-05.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken03.mp4",
-            "alt": "Chicken frame 03"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-06.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 2000
-            },
-
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/open-door.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 0
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken04.mp4",
-            "alt": "Chicken frame 04"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/chicken.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 0
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-07.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 5000,
-              "hideAt": 10000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken05.mp4",
-            "alt": "Chicken frame 05"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/clear-chicken.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 0
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-05a.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 800
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken06.mp4",
-            "alt": "Chicken frame 06"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/alert.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 300
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-15.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken07.mp4",
-            "alt": "Chicken frame 07"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/disaster.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 300
-            },
-
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-08.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-09.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"]
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken08.mp4",
-            "alt": "Chicken frame 08"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-10.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 800
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-16.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"]
-            },
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/disaster.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 300
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken12.mp4",
-            "alt": "Chicken frame 08"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-11.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 2000
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-12.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/disaster.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 300
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken10.mp4",
-            "alt": "Chicken frame 10"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/reveal.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 300
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-13.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 500
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/chicken/chicken11.mp4",
-            "alt": "Chicken frame 11"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/point.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ]
-            },
-            {
-              "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-14.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
         },
         {
           "base": {
             "type": "image",
-            "src": "media/ui/ui-01.png",
-            "alt": "Bank frame 14"
+            "src": "media/ui/overlays/UI_chicken-01.jpg",
+            "alt": "Chicken frame 02"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/ui/overlays/ui-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "persistent": true,
-              "music": [
-                {
-                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
-                }
-              ],
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
-                  "loops": false,
-                  "stopOthers": true
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "image",
-              "src": "media/ui/overlays/ui-overlay-02.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1500
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_chicken-02.jpg",
+            "alt": "Chicken frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_chicken-03.jpg",
+            "alt": "Chicken frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_chicken-04.jpg",
+            "alt": "Chicken frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_chicken-05.jpg",
+            "alt": "Chicken frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_chicken-06.jpg",
+            "alt": "Chicken frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_chicken-07.jpg",
+            "alt": "Chicken frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
         },
         {
           "base": {
             "type": "video",
-            "src": "media/chicken/chicken09.mp4",
-            "alt": "Chicken frame 09"
+            "src": "media/chicken/chicken_outro.mp4",
+            "alt": "Chicken frame 01"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/BGLoops/Chicken_ParkLotBG_LOOP-01.mp3",
-                  "loops": true,
-                  "stopOthers": true
-                }
-              ],
-              "delay": 0
-            },
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/happy.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 1000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
         }
       ]
     },
@@ -1601,607 +174,74 @@
         {
           "base": {
             "type": "video",
-            "src": "media/travel/travel01.mp4",
+            "src": "media/travel/travel_intro.mp4",
             "alt": "Travel frame 01"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "music": [
-                {
-                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3"
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-02.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": 5000
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-03.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 5500,
-              "hideAt": 9000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel02.mp4",
-            "alt": "Travel frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-05.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": 5000
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-04.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 5500,
-              "hideAt": 9000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel03.mp4",
-            "alt": "Travel frame 03"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            },
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Travel/plane.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 0
-            }
-          ]
-        },
-
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel04.mp4",
-            "alt": "Travel frame 04"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Travel/tear.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 0
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-11.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 3500,
-              "hideAt": 7000
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-12.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 6500,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel11.mp4",
-            "alt": "Travel frame 04"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-06.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 3500,
-              "hideAt": 7000
-            },
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-07.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 6500,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel05.mp4",
-            "alt": "Travel frame 05"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-08.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel06.mp4",
-            "alt": "Travel frame 06"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Travel/alert.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 0
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel07.mp4",
-            "alt": "Travel frame 07"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Chicken/disaster.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 1000
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel08.mp4",
-            "alt": "Travel frame 08"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/travel/overlays/travel-overlay-10.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": null
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "video",
-            "src": "media/travel/travel09.mp4",
-            "alt": "Travel frame 09"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Travel/typing.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "delay": 0
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
         },
         {
           "base": {
             "type": "image",
-            "src": "media/ui/ui-01.png",
-            "alt": "Bank frame 14"
+            "src": "media/ui/overlays/UI_airline-01.jpg",
+            "alt": "Travel frame 02"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "image",
-              "src": "media/ui/overlays/ui-overlay-01.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "persistent": true,
-              "music": [
-                {
-                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
-                }
-              ],
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
-                  "loops": false,
-                  "stopOthers": true
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1000
-            },
-            {
-              "type": "image",
-              "src": "media/ui/overlays/ui-overlay-02.png",
-              "alt": "Tap to continue",
-              "action": "next",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
-                  "loops": false,
-                  "stopOthers": false
-                }
-              ],
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "delay": 1500
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_airline-02.jpg",
+            "alt": "Travel frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_airline-03.jpg",
+            "alt": "Travel frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_airline-04.jpg",
+            "alt": "Travel frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_airline-05.jpg",
+            "alt": "Travel frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": []
         },
         {
           "base": {
             "type": "video",
-            "src": "media/travel/travel10.mp4",
-            "alt": "Travel frame 10"
+            "src": "media/travel/travel_outro.mp4",
+            "alt": "Travel frame 01"
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": [
-            {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/BGLoops/Airplane_DinnerTableBG_LOOP.mp3",
-                  "loops": false,
-                  "stopOthers": true
-                }
-              ],
-              "delay": 0
-            },
-            {
-              "type": "button",
-              "text": "Skip",
-              "persistent": true,
-              "action": "skip",
-              "x": 90,
-              "y": 95,
-              "w": 10,
-              "h": 5,
-              "classList": ["pop-in"],
-              "showAt": 0
-            }
-          ]
+          "overlays": []
         }
       ]
     }
