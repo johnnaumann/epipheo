@@ -12,7 +12,17 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/continue.svg",
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "delay": 67000
+            }
+          ]
         },
         {
           "base": {
@@ -33,20 +43,18 @@
                 }
               ],
               "delay": 0
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/arrow.svg",
+              "x": 10,
+              "y": 20,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
             }
           ]
         },
-        {
-          "base": {
-            "type": "image",
-            "src": "media/ui/overlays/UI_bank-02.jpg",
-            "alt": "Bank frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": []
-        },
-
         {
           "base": {
             "type": "image",
@@ -55,7 +63,17 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/arrow.svg",
+              "x": 85,
+              "y": 3,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
+            }
+          ]
         },
 
         {
@@ -66,7 +84,17 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/continue.svg",
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
+            }
+          ]
         },
         {
           "base": {
@@ -76,7 +104,17 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/end.svg",
+              "x": 50,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "delay": 10000
+            }
+          ]
         }
       ]
     },
@@ -92,12 +130,22 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/continue.svg",
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "delay": 65000
+            }
+          ]
         },
         {
           "base": {
             "type": "image",
-            "src": "media/ui/overlays/UI_chicken-01.jpg",
+            "src": "media/ui/overlays/UI_chicken-05.jpg",
             "alt": "Chicken frame 02"
           },
           "advance": "click",
@@ -113,50 +161,17 @@
                 }
               ],
               "delay": 0
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/arrow.svg",
+              "x": 65,
+              "y": 3,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
             }
           ]
-        },
-        {
-          "base": {
-            "type": "image",
-            "src": "media/ui/overlays/UI_chicken-02.jpg",
-            "alt": "Chicken frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": []
-        },
-
-        {
-          "base": {
-            "type": "image",
-            "src": "media/ui/overlays/UI_chicken-03.jpg",
-            "alt": "Chicken frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": []
-        },
-
-        {
-          "base": {
-            "type": "image",
-            "src": "media/ui/overlays/UI_chicken-04.jpg",
-            "alt": "Chicken frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": []
-        },
-        {
-          "base": {
-            "type": "image",
-            "src": "media/ui/overlays/UI_chicken-05.jpg",
-            "alt": "Chicken frame 02"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": []
         },
         {
           "base": {
@@ -166,7 +181,17 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/arrow.svg",
+              "x": 55,
+              "y": 3,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
+            }
+          ]
         },
 
         {
@@ -177,7 +202,17 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/continue.svg",
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
+            }
+          ]
         },
         {
           "base": {
@@ -187,7 +222,17 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/end.svg",
+              "x": 50,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
+            }
+          ]
         }
       ]
     },
@@ -203,7 +248,17 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/continue.svg",
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "delay": 50000
+            }
+          ]
         },
         {
           "base": {
@@ -224,6 +279,15 @@
                 }
               ],
               "delay": 0
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/arrow.svg",
+              "x": 10,
+              "y": 20,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
             }
           ]
         },
@@ -235,9 +299,18 @@
           },
           "advance": "click",
           "preloadNext": true,
-          "overlays": []
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/overlays/arrow.svg",
+              "x": 84,
+              "y": 65,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
+            }
+          ]
         },
-
         {
           "base": {
             "type": "image",
@@ -246,6 +319,7 @@
           },
           "advance": "click",
           "preloadNext": true,
+          "sequential": false,
           "overlays": [
             {
               "type": "video",
@@ -254,9 +328,19 @@
               "y": 20,
               "w": 54,
               "h": 71,
-              "autoplay": false,
+              "autoplay": true,
               "controls": false,
-              "loop": true
+              "loop": true,
+              "delay": 0
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/continue.svg",
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "showAt": 4000
             }
           ]
         },
@@ -279,6 +363,15 @@
                 }
               ],
               "delay": 0
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/end.svg",
+              "x": 50,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "delay": 3000
             }
           ]
         }

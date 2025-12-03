@@ -380,6 +380,7 @@ function renderSlide() {
   }
 
   const useSequentialOverlays =
+    currentSlide.sequential !== false &&
     Array.isArray(overlays) &&
     overlays.length > 0 &&
     currentSlide.advance === "click";
