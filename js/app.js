@@ -131,12 +131,16 @@ async function initializeApplication() {
     appState.config = config;
     buildSplashButtons();
 
+    // Start splash background music on initial load
+    const splashBGMusic = getOrCreateSoundAudio(
+      "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
+    );
+    playMusic(splashBGMusic);
+
     setTimeout(preloadFirstVideoForEachPath, 500);
     setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
   } catch {
-    renderFatalError(
-      "Unable to load slides. Check that js/slides.json is reachable and valid JSON."
-    );
+    renderFatalError("Configuration failed to load. Please try again later.");
   }
 }
 
