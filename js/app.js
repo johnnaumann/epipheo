@@ -118,7 +118,52 @@ let overlayAdvanceHandler = null;
 document.addEventListener("DOMContentLoaded", () => {
   createGlobalAudioToggles();
   initializeApplication();
+  autoStartSplashMusic();
 });
+
+const SPLASH_MUSIC_SRC =
+  "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3";
+
+let splashMusicAutoStarted = false;
+
+/**
+ * Best-effort automatic splash music:
+ * - Try to start immediately.
+ * - If autoplay is blocked, the first pointer move / touch / keydown
+ *   will start it, without touching the audio button.
+ */
+function autoStartSplashMusic() {
+  if (splashMusicAutoStarted) return;
+  splashMusicAutoStarted = true;
+
+  if (!appState.musicEnabled) return;
+
+  const splashBGMusic = getOrCreateSoundAudio(SPLASH_MUSIC_SRC);
+  if (!splashBGMusic) return;
+
+  const tryPlay = () => {
+    if (!appState.musicEnabled) return;
+    // Use central music helper so we still track activeMusicElements, etc.
+    playMusic(splashBGMusic, { loop: true, stopOthers: true });
+  };
+
+  // First attempt: immediately on load
+  tryPlay();
+
+  // Fallback: first "soft" user interaction
+  const onFirstGesture = () => {
+    console.log("play");
+    tryPlay();
+
+    window.removeEventListener("pointerdown", onFirstGesture);
+    window.removeEventListener("touchstart", onFirstGesture);
+    window.removeEventListener("keydown", onFirstGesture);
+  };
+
+  window.addEventListener("pointerdown", onFirstGesture, { once: true });
+  window.addEventListener("touchstart", onFirstGesture, { once: true });
+  window.addEventListener("keydown", onFirstGesture, { once: true });
+}
 
 /**
  * Initializes the app by loading the slide configuration, wiring global keys, and rendering.
@@ -131,16 +176,15 @@ async function initializeApplication() {
     appState.config = config;
     buildSplashButtons();
 
-    // Start splash background music on initial load
-    const splashBGMusic = getOrCreateSoundAudio(
-      "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
-    );
-    playMusic(splashBGMusic);
-
     setTimeout(preloadFirstVideoForEachPath, 500);
     setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
+
+    // Try to auto-start splash music on first load
+    autoStartSplashMusic();
   } catch {
-    renderFatalError("Configuration failed to load. Please try again later.");
+    renderFatalError(
+      "Unable to load slides. Check that js/slides.json is reachable and valid JSON."
+    );
   }
 }
 
@@ -520,6 +564,7 @@ function returnToSplash() {
     "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
   );
   playMusic(splashBGMusic);
+
   setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
 }
 
