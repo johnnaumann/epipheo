@@ -38,7 +38,7 @@
         {
           "base": {
             "type": "image",
-            "src": "media/ui/overlays/UI_bank-01.jpg",
+            "src": "media/ui/overlays/UI_bank-01.png",
             "alt": "Bank frame 02"
           },
           "advance": "click",
@@ -220,7 +220,7 @@
         {
           "base": {
             "type": "image",
-            "src": "media/ui/overlays/UI_chicken-01.jpg",
+            "src": "media/ui/overlays/UI_chicken-01.png",
             "alt": "Chicken frame 02"
           },
           "advance": "click",
