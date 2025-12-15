@@ -473,7 +473,7 @@
         {
           "base": {
             "type": "image",
-            "src": "media/ui/overlays/UI_airline-01.jpg",
+            "src": "media/ui/overlays/UI_airline-01.png",
             "alt": "Travel frame 02"
           },
           "advance": "click",
