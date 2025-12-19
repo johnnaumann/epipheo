@@ -220,7 +220,7 @@
         {
           "base": {
             "type": "image",
-            "src": "media/ui/overlays/UI_chicken-01.png",
+            "src": "media/ui/overlays/UI_chicken-01.jpg",
             "alt": "Chicken frame 02"
           },
           "advance": "click",
